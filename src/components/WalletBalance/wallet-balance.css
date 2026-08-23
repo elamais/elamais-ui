@@ -1,0 +1,67 @@
+.ela-wallet-balance {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: var(--space-6);
+  background: var(--surface-brand);
+  border-radius: var(--radius-lg);
+  font-family: var(--font-sans);
+}
+
+.ela-wallet-balance__main {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ela-wallet-balance__label {
+  font-size: var(--fs-caption);
+  line-height: var(--lh-caption);
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  font-weight: var(--fw-medium);
+  color: var(--text-on-brand-soft);
+}
+
+.ela-wallet-balance__amount {
+  font-family: var(--font-display);
+  font-size: var(--fs-display);
+  line-height: var(--lh-display);
+  letter-spacing: var(--ls-display);
+  color: var(--text-on-brand);
+}
+
+.ela-wallet-balance__rule {
+  height: 1px;
+  background: rgba(216, 185, 154, 0.28);
+}
+
+.ela-wallet-balance__pending-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.ela-wallet-balance__pending {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.ela-wallet-balance__pending-amount {
+  font-size: var(--fs-h4);
+  line-height: var(--lh-h4);
+  font-weight: var(--fw-semibold);
+  color: var(--ela-champagne);
+}
+
+.ela-wallet-balance__release {
+  padding: var(--space-2) 14px;
+  border-radius: var(--radius-full);
+  background: rgba(250, 248, 245, 0.1);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: var(--fw-medium);
+  color: rgba(250, 248, 245, 0.86);
+}

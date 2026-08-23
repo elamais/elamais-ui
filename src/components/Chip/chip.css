@@ -1,0 +1,51 @@
+.ela-chip {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  height: 40px;
+  padding: 0 18px;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-full);
+  background: var(--surface-card);
+  color: var(--ela-plum);
+  font-family: var(--font-sans);
+  font-size: var(--fs-small);
+  line-height: 16px;
+  letter-spacing: 0.3px;
+  font-weight: var(--fw-semibold);
+  cursor: pointer;
+  transition:
+    background-color var(--dur-base) var(--ease-standard),
+    border-color var(--dur-base) var(--ease-standard),
+    color var(--dur-base) var(--ease-standard);
+}
+
+/* Extends the touch target to 44px without changing the 40px visual height. */
+.ela-chip::after {
+  content: "";
+  position: absolute;
+  inset: -2px 0;
+}
+
+.ela-chip:hover:not(:disabled):not(.ela-chip--selected) {
+  border-color: var(--ela-lilac);
+  background: var(--surface-soft);
+}
+
+.ela-chip:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+.ela-chip--selected {
+  border-color: var(--ela-lilac-700);
+  background: var(--surface-soft);
+  color: var(--ela-lilac-700);
+}
+
+.ela-chip:disabled {
+  border-color: var(--border-subtle);
+  background: var(--surface-disabled);
+  color: var(--text-disabled);
+  cursor: default;
+}

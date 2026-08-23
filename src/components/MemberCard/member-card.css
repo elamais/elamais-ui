@@ -1,0 +1,124 @@
+/* Plum card with a 1px champagne hairline, radius 24px. QR always sits on
+   off-white, never directly on plum. */
+.ela-member-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  padding: var(--space-6);
+  background: var(--surface-brand);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-e2);
+  font-family: var(--font-sans);
+}
+
+.ela-member-card__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-4);
+}
+
+.ela-member-card__brand {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ela-member-card__logo {
+  display: flex;
+  align-items: baseline;
+  gap: 1px;
+  font-family: var(--font-display);
+  font-size: 34px;
+  line-height: 34px;
+  letter-spacing: -0.6px;
+  color: var(--text-on-brand);
+}
+
+.ela-member-card__logo-plus {
+  color: var(--ela-champagne);
+}
+
+.ela-member-card__tagline {
+  font-size: 9px;
+  line-height: 12px;
+  letter-spacing: 2.4px;
+  text-transform: uppercase;
+  color: var(--text-on-brand-soft);
+}
+
+.ela-member-card__plan {
+  padding: 7px 14px;
+  border: 1px solid var(--ela-champagne);
+  border-radius: var(--radius-full);
+  font-size: 10px;
+  line-height: 13px;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  font-weight: var(--fw-semibold);
+  color: var(--ela-champagne);
+}
+
+.ela-member-card__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: var(--space-5);
+}
+
+.ela-member-card__fields {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.ela-member-card__field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.ela-member-card__field-label {
+  font-size: 9px;
+  line-height: 12px;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  font-weight: var(--fw-medium);
+  color: var(--text-on-brand-soft);
+}
+
+.ela-member-card__name {
+  font-size: var(--fs-h4);
+  line-height: 22px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: var(--fw-semibold);
+  color: var(--text-on-brand);
+}
+
+.ela-member-card__dates {
+  display: flex;
+  gap: 28px;
+}
+
+.ela-member-card__field-value {
+  font-size: var(--fs-small);
+  line-height: 18px;
+  letter-spacing: 0.6px;
+  font-weight: var(--fw-medium);
+  color: var(--text-on-brand);
+}
+
+.ela-member-card__qr {
+  flex: none;
+  width: 92px;
+  height: 92px;
+  padding: var(--space-2);
+  border-radius: var(--radius-md);
+  background: var(--ela-offwhite);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}

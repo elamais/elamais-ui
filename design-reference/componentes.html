@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  body { margin: 0; background: #FAF8F5; color: #1E1E1E; font-family: Montserrat, sans-serif; -webkit-font-smoothing: antialiased; }
+  * { box-sizing: border-box; }
+  a { color: #7A5A2E; text-decoration: none; }
+  a:hover { color: #3D1B35; }
+  @keyframes elaSpin { to { transform: rotate(360deg); } }
+  @keyframes elaPulse { 0%,100% { opacity: 1 } 50% { opacity: .45 } }
+</style>
+</helmet>
+
+<div style="max-width: 1180px; margin: 0 auto; padding: 48px 24px 120px; display: flex; flex-direction: column; gap: 56px">
+  <div style="display: flex; flex-direction: column; gap: 16px">
+    <a href="#indice" style="font: 600 11px/14px Montserrat; letter-spacing: 2px; text-transform: uppercase">← Índice</a>
+    <div style="display: flex; align-items: baseline; gap: 16px; border-bottom: 1px solid #3D1B35; padding-bottom: 14px">
+      <span style="font: 600 12px/14px Montserrat; letter-spacing: 2px; color: #B08A4F">03</span>
+      <h1 style="margin: 0; font: 400 40px/44px 'Playfair Display', serif; letter-spacing: -.6px; color: #3D1B35">Componentes</h1>
+    </div>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 16px">
+    <h2 style="margin: 0; font: 600 12px/16px Montserrat; letter-spacing: 2px; text-transform: uppercase; color: #7A5A2E">Botões · altura 52px mobile, 48px desktop</h2>
+    <div style="background: #FFFFFF; border: 1px solid #EDE6DE; border-radius: 16px; padding: 28px; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 28px; box-shadow: 0 2px 8px rgba(61,27,53,.06)">
+
+      <div style="display: flex; flex-direction: column; gap: 12px">
+        <span style="font: 600 11px/14px Montserrat; letter-spacing: 1.4px; text-transform: uppercase; color: #5C5560">Primário</span>
+        <button style="height: 52px; padding: 0 24px; border: 0; border-radius: 12px; background: #3D1B35; color: #FAF8F5; font: 600 15px/20px Montserrat; letter-spacing: .4px; cursor: pointer; transition: background 120ms cubic-bezier(.2,.8,.2,1)" style-hover="background: #4B2242" style-active="background: #2A1224">Usar benefício</button>
+        <button style="height: 52px; padding: 0 24px; border: 0; border-radius: 12px; background: #4B2242; color: #FAF8F5; font: 600 15px/20px Montserrat; letter-spacing: .4px">Hover</button>
+        <button style="height: 52px; padding: 0 24px; border: 0; border-radius: 12px; background: #2A1224; color: #FAF8F5; font: 600 15px/20px Montserrat; letter-spacing: .4px">Active</button>
+        <button style="height: 52px; padding: 0 24px; border: 0; border-radius: 12px; background: #3D1B35; color: #FAF8F5; font: 600 15px/20px Montserrat; letter-spacing: .4px; box-shadow: 0 0 0 3px rgba(168,138,167,.45)">Focus</button>
+        <button style="height: 52px; padding: 0 24px; border: 0; border-radius: 12px; background: #3D1B35; color: #FAF8F5; font: 600 15px/20px Montserrat; letter-spacing: .4px; display: flex; align-items: center; justify-content: center; gap: 10px"><span style="width: 16px; height: 16px; border: 2px solid rgba(250,248,245,.35); border-top-color: #D8B99A; border-radius: 50%; animation: elaSpin 700ms linear infinite"></span>Validando</button>
+        <button style="height: 52px; padding: 0 24px; border: 0; border-radius: 12px; background: #F1EDE9; color: #B8B0AA; font: 600 15px/20px Montserrat; letter-spacing: .4px" disabled="">Indisponível</button>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 12px">
+        <span style="font: 600 11px/14px Montserrat; letter-spacing: 1.4px; text-transform: uppercase; color: #5C5560">Secundário</span>
+        <button style="height: 52px; padding: 0 24px; border: 1px solid #3D1B35; border-radius: 12px; background: transparent; color: #3D1B35; font: 600 15px/20px Montserrat; letter-spacing: .4px; cursor: pointer; transition: background 120ms cubic-bezier(.2,.8,.2,1)" style-hover="background: #F3EBF0">Ver detalhes</button>
+        <button style="height: 52px; padding: 0 24px; border: 1px solid #3D1B35; border-radius: 12px; background: #F3EBF0; color: #3D1B35; font: 600 15px/20px Montserrat; letter-spacing: .4px">Hover</button>
+        <button style="height: 52px; padding: 0 24px; border: 1px solid #2A1224; border-radius: 12px; background: #E7DAE3; color: #2A1224; font: 600 15px/20px Montserrat; letter-spacing: .4px">Active</button>
+        <button style="height: 52px; padding: 0 24px; border: 1px solid #3D1B35; border-radius: 12px; background: transparent; color: #3D1B35; font: 600 15px/20px Montserrat; letter-spacing: .4px; box-shadow: 0 0 0 3px rgba(168,138,167,.45)">Focus</button>
+        <button style="height: 52px; padding: 0 24px; border: 1px solid #E6DFD8; border-radius: 12px; background: transparent; color: #B8B0AA; font: 600 15px/20px Montserrat; letter-spacing: .4px" disabled="">Indisponível</button>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 12px">
+        <span style="font: 600 11px/14px Montserrat; letter-spacing: 1.4px; text-transform: uppercase; color: #5C5560">Ghost</span>
+        <button style="height: 52px; padding: 0 20px; border: 0; border-radius: 12px; background: transparent; color: #7A5A2E; font: 600 15px/20px Montserrat; letter-spacing: .4px; cursor: pointer; transition: background 120ms cubic-bezier(.2,.8,.2,1)" style-hover="background: #F7EFE4">Ver todos</button>
+        <button style="height: 52px; padding: 0 20px; border: 0; border-radius: 12px; background: #F7EFE4; color: #7A5A2E; font: 600 15px/20px Montserrat; letter-spacing: .4px">Hover</button>
+        <button style="height: 52px; padding: 0 20px; border: 0; border-radius: 12px; background: #EFE3D2; color: #6B4E27; font: 600 15px/20px Montserrat; letter-spacing: .4px">Active</button>
+        <button style="height: 52px; padding: 0 20px; border: 0; border-radius: 12px; background: transparent; color: #B8B0AA; font: 600 15px/20px Montserrat; letter-spacing: .4px" disabled="">Indisponível</button>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 12px">
+        <span style="font: 600 11px/14px Montserrat; letter-spacing: 1.4px; text-transform: uppercase; color: #5C5560">Destrutivo</span>
+        <button style="height: 52px; padding: 0 24px; border: 1px solid #8E3A38; border-radius: 12px; background: transparent; color: #8E3A38; font: 600 15px/20px Montserrat; letter-spacing: .4px; cursor: pointer; transition: background 120ms cubic-bezier(.2,.8,.2,1)" style-hover="background: #F8EDEC">Cancelar assinatura</button>
+        <button style="height: 52px; padding: 0 24px; border: 1px solid #8E3A38; border-radius: 12px; background: #F8EDEC; color: #8E3A38; font: 600 15px/20px Montserrat; letter-spacing: .4px">Hover</button>
+        <button style="height: 52px; padding: 0 24px; border: 0; border-radius: 12px; background: #8E3A38; color: #FFFFFF; font: 600 15px/20px Montserrat; letter-spacing: .4px">Confirmar cancelamento</button>
+        <span style="font: 400 12px/18px Montserrat; color: #5C5560">Sólido só dentro de modal de confirmação.</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 16px">
+    <h2 style="margin: 0; font: 600 12px/16px Montserrat; letter-spacing: 2px; text-transform: uppercase; color: #7A5A2E">Inputs e formulários</h2>
+    <div style="background: #FFFFFF; border: 1px solid #EDE6DE; border-radius: 16px; padding: 28px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; box-shadow: 0 2px 8px rgba(61,27,53,.06)">
+      <div style="display: flex; flex-direction: column; gap: 7px">
+        <label style="font: 600 11px/14px Montserrat; letter-spacing: 1.2px; text-transform: uppercase; color: #5C5560">E-mail</label>
+        <input type="email" placeholder="seu@email.com" style="height: 52px; padding: 0 16px; border: 1px solid #E6DFD8; border-radius: 8px; background: #FFFFFF; font: 400 15px/24px Montserrat; color: #1E1E1E; outline: none" />
+        <span style="font: 400 12px/18px Montserrat; color: #5C5560">Usamos seu e-mail apenas para avisos da sua conta.</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 7px">
+        <label style="font: 600 11px/14px Montserrat; letter-spacing: 1.2px; text-transform: uppercase; color: #5C5560">Nome · foco</label>
+        <input type="text" value="Ana Martins" style="height: 52px; padding: 0 16px; border: 1px solid #3D1B35; border-radius: 8px; background: #FFFFFF; font: 400 15px/24px Montserrat; color: #1E1E1E; outline: none; box-shadow: 0 0 0 3px rgba(168,138,167,.45)" />
+        <span style="font: 400 12px/18px Montserrat; color: #5C5560">Borda ameixa + anel lilás 3px.</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 7px">
+        <label style="font: 600 11px/14px Montserrat; letter-spacing: 1.2px; text-transform: uppercase; color: #8E3A38">CPF · erro</label>
+        <input type="text" value="123.456.789-0" style="height: 52px; padding: 0 16px; border: 1px solid #8E3A38; border-radius: 8px; background: #F8EDEC; font: 400 15px/24px Montserrat; color: #1E1E1E; outline: none" />
+        <span style="font: 500 12px/18px Montserrat; color: #8E3A38">Confira o número: faltam dígitos.</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 7px">
+        <label style="font: 600 11px/14px Montserrat; letter-spacing: 1.2px; text-transform: uppercase; color: #B8B0AA">Plano · desabilitado</label>
+        <input type="text" value="Master" style="height: 52px; padding: 0 16px; border: 1px solid #E6DFD8; border-radius: 8px; background: #F1EDE9; font: 400 15px/24px Montserrat; color: #B8B0AA; outline: none" disabled="" />
+        <span style="font: 400 12px/18px Montserrat; color: #5C5560">Alteração de plano é feita em Assinatura.</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 7px">
+        <label style="font: 600 11px/14px Montserrat; letter-spacing: 1.2px; text-transform: uppercase; color: #5C5560">Busca</label>
+        <div style="height: 52px; padding: 0 16px; border: 1px solid #E6DFD8; border-radius: 999px; background: #FFFFFF; display: flex; align-items: center; gap: 10px">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7A5A2E" stroke-width="1.5" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-4.2-4.2"></path></svg>
+          <span style="font: 400 15px/24px Montserrat; color: #857D88">Buscar benefícios</span>
+        </div>
+        <span style="font: 400 12px/18px Montserrat; color: #5C5560">Campo de busca usa raio full.</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px">
+        <label style="font: 600 11px/14px Montserrat; letter-spacing: 1.2px; text-transform: uppercase; color: #5C5560">Seleção</label>
+        <div style="display: flex; align-items: center; gap: 12px">
+          <span style="width: 22px; height: 22px; border-radius: 6px; background: #3D1B35; display: flex; align-items: center; justify-content: center"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#D8B99A" stroke-width="2.2" stroke-linecap="round"><path d="M5 13l4 4 10-10"></path></svg></span>
+          <span style="font: 400 15px/24px Montserrat; color: #1E1E1E">Quero receber novidades</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px">
+          <span style="width: 22px; height: 22px; border-radius: 6px; border: 1px solid #E6DFD8; background: #FFF"></span>
+          <span style="font: 400 15px/24px Montserrat; color: #1E1E1E">Aceito receber ofertas de parceiras</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px">
+          <span style="width: 44px; height: 26px; border-radius: 999px; background: #3D1B35; padding: 3px; display: flex; justify-content: flex-end"><span style="width: 20px; height: 20px; border-radius: 50%; background: #D8B99A"></span></span>
+          <span style="font: 400 15px/24px Montserrat; color: #1E1E1E">Notificações por push</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px">
+    <div style="display: flex; flex-direction: column; gap: 16px">
+      <h2 style="margin: 0; font: 600 12px/16px Montserrat; letter-spacing: 2px; text-transform: uppercase; color: #7A5A2E">Chips de categoria</h2>
+      <div style="background: #FFFFFF; border: 1px solid #EDE6DE; border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 16px; box-shadow: 0 2px 8px rgba(61,27,53,.06)">
+        <div style="display: flex; flex-wrap: wrap; gap: 8px">
+          <button style="height: 40px; padding: 0 18px; border-radius: 999px; border: 1px solid #6E4F6C; background: #EFE7EE; color: #6E4F6C; font: 600 13px/16px Montserrat; letter-spacing: .3px; cursor: pointer">Beleza</button>
+          <button style="height: 40px; padding: 0 18px; border-radius: 999px; border: 1px solid #E6DFD8; background: #FFFFFF; color: #3D1B35; font: 600 13px/16px Montserrat; letter-spacing: .3px; cursor: pointer; transition: all 200ms cubic-bezier(.2,.8,.2,1)" style-hover="border-color: #A88AA7; background: #FBF7FA">Saúde</button>
+          <button style="height: 40px; padding: 0 18px; border-radius: 999px; border: 1px solid #E6DFD8; background: #FFFFFF; color: #3D1B35; font: 600 13px/16px Montserrat; letter-spacing: .3px; cursor: pointer; transition: all 200ms cubic-bezier(.2,.8,.2,1)" style-hover="border-color: #A88AA7; background: #FBF7FA">Gastronomia</button>
+          <button style="height: 40px; padding: 0 18px; border-radius: 999px; border: 1px solid #E6DFD8; background: #FFFFFF; color: #3D1B35; font: 600 13px/16px Montserrat; letter-spacing: .3px; cursor: pointer; transition: all 200ms cubic-bezier(.2,.8,.2,1)" style-hover="border-color: #A88AA7; background: #FBF7FA">Moda</button>
+          <button style="height: 40px; padding: 0 18px; border-radius: 999px; border: 1px solid #E6DFD8; background: #FFFFFF; color: #3D1B35; font: 600 13px/16px Montserrat; letter-spacing: .3px; cursor: pointer" style-hover="border-color: #A88AA7; background: #FBF7FA">Bem-estar</button>
+          <button style="height: 40px; padding: 0 18px; border-radius: 999px; border: 1px solid #F0EAE3; background: #F1EDE9; color: #B8B0AA; font: 600 13px/16px Montserrat; letter-spacing: .3px" disabled="">Viagens</button>
+        </div>
+        <div style="border-top: 1px solid #F0EAE3; padding-top: 12px; font: 400 12px/18px Montserrat; color: #5C5560">Selecionado: fundo lilás-050 + borda e texto lilás-700. Altura 40px, alvo de toque 44px com margem vertical. Rolagem horizontal sem barra visível.</div>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 16px">
+      <h2 style="margin: 0; font: 600 12px/16px Montserrat; letter-spacing: 2px; text-transform: uppercase; color: #7A5A2E">Badges de status e avaliação</h2>
+      <div style="background: #FFFFFF; border: 1px solid #EDE6DE; border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 16px; box-shadow: 0 2px 8px rgba(61,27,53,.06)">
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center">
+          <span style="padding: 6px 12px; border-radius: 4px; background: #3D1B35; color: #D8B99A; font: 600 11px/14px Montserrat; letter-spacing: 1px; text-transform: uppercase">Exclusivo</span>
+          <span style="padding: 6px 12px; border-radius: 4px; background: #F7EFE4; color: #7A5A2E; font: 600 11px/14px Montserrat; letter-spacing: 1px; text-transform: uppercase">Master</span>
+          <span style="padding: 6px 12px; border-radius: 4px; background: #EFE7EE; color: #6E4F6C; font: 600 11px/14px Montserrat; letter-spacing: 1px; text-transform: uppercase">Novo</span>
+          <span style="padding: 6px 12px; border-radius: 4px; background: #E9F0EB; color: #2F5B44; font: 600 11px/14px Montserrat; letter-spacing: 1px; text-transform: uppercase">Ativo</span>
+          <span style="padding: 6px 12px; border-radius: 4px; background: #F9F0E0; color: #7A5A2E; font: 600 11px/14px Montserrat; letter-spacing: 1px; text-transform: uppercase">Expira hoje</span>
+          <span style="padding: 6px 12px; border-radius: 4px; background: #F8EDEC; color: #8E3A38; font: 600 11px/14px Montserrat; letter-spacing: 1px; text-transform: uppercase">Expirado</span>
+          <span style="padding: 6px 12px; border-radius: 4px; background: #F1EDE9; color: #857D88; font: 600 11px/14px Montserrat; letter-spacing: 1px; text-transform: uppercase">Pendente</span>
+        </div>
+        <div style="border-top: 1px solid #F0EAE3; padding-top: 16px; display: flex; align-items: center; gap: 12px">
+          <span style="display: flex; gap: 3px">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#B08A4F" stroke="#B08A4F" stroke-width="1.5"><path d="M12 4l2.3 5.2 5.7.5-4.3 3.8 1.3 5.5L12 16.1 6.9 19l1.3-5.5L4 9.7l5.7-.5z"></path></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#B08A4F" stroke="#B08A4F" stroke-width="1.5"><path d="M12 4l2.3 5.2 5.7.5-4.3 3.8 1.3 5.5L12 16.1 6.9 19l1.3-5.5L4 9.7l5.7-.5z"></path></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#B08A4F" stroke="#B08A4F" stroke-width="1.5"><path d="M12 4l2.3 5.2 5.7.5-4.3 3.8 1.3 5.5L12 16.1 6.9 19l1.3-5.5L4 9.7l5.7-.5z"></path></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#B08A4F" stroke="#B08A4F" stroke-width="1.5"><path d="M12 4l2.3 5.2 5.7.5-4.3 3.8 1.3 5.5L12 16.1 6.9 19l1.3-5.5L4 9.7l5.7-.5z"></path></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#D6CBC0" stroke-width="1.5"><path d="M12 4l2.3 5.2 5.7.5-4.3 3.8 1.3 5.5L12 16.1 6.9 19l1.3-5.5L4 9.7l5.7-.5z"></path></svg>
+          </span>
+          <span style="font: 600 14px/20px Montserrat; color: #1E1E1E">4,8</span>
+          <span style="font: 400 13px/20px Montserrat; color: #5C5560">· 126 avaliações</span>
+        </div>
+        <div style="font: 400 12px/18px Montserrat; color: #5C5560">Estrelas em champagne-600 (#B08A4F) para contraste; vazias em #D6CBC0.</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 16px">
+    <h2 style="margin: 0; font: 600 12px/16px Montserrat; letter-spacing: 2px; text-transform: uppercase; color: #7A5A2E">Card de benefício</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px">
+
+      <div style="background: #FFFFFF; border: 1px solid #EDE6DE; border-radius: 16px; overflow: hidden; box-shadow: 0 2px 8px rgba(61,27,53,.06)">
+        <div style="position: relative; height: 160px; background: repeating-linear-gradient(135deg, #F3EBF0 0 10px, #EFE3EC 10px 20px); display: flex; align-items: center; justify-content: center">
+          <span style="font: 400 11px/16px 'SFMono-Regular', Menlo, monospace; letter-spacing: .5px; color: #857D88">foto da parceira 3:2</span>
+          <span style="position: absolute; top: 12px; left: 12px; padding: 7px 12px; border-radius: 4px; background: #3D1B35; color: #D8B99A; font: 600 13px/16px Montserrat; letter-spacing: .6px">20% OFF</span>
+          <span style="position: absolute; top: 12px; right: 12px; width: 36px; height: 36px; border-radius: 999px; background: rgba(250,248,245,.92); display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3D1B35" stroke-width="1.5" stroke-linecap="round"><path d="M12 20s-7-4.6-7-9.5A4.5 4.5 0 0 1 12 7a4.5 4.5 0 0 1 7 3.5C19 15.4 12 20 12 20z"></path></svg></span>
+        </div>
+        <div style="padding: 16px; display: flex; flex-direction: column; gap: 8px">
+          <span style="font: 500 11px/16px Montserrat; letter-spacing: .6px; text-transform: uppercase; color: #6E4F6C">Beleza</span>
+          <span style="font: 600 17px/24px Montserrat; letter-spacing: .2px; color: #1E1E1E">Salão Bahaus</span>
+          <span style="font: 400 13px/20px Montserrat; color: #5C5560">Corte e escova com hidratação inclusa.</span>
+          <div style="display: flex; align-items: center; gap: 10px; padding-top: 4px">
+            <span style="display: flex; align-items: center; gap: 4px; font: 400 12px/16px Montserrat; color: #5C5560"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#B08A4F" stroke-width="1.5"><circle cx="12" cy="10" r="3"></circle><path d="M12 21s7-6.1 7-11a7 7 0 1 0-14 0c0 4.9 7 11 7 11z"></path></svg>1,2 km</span>
+            <span style="width: 1px; height: 12px; background: #E6DFD8"></span>
+            <span style="display: flex; align-items: center; gap: 4px; font: 400 12px/16px Montserrat; color: #5C5560"><svg width="14" height="14" viewBox="0 0 24 24" fill="#B08A4F" stroke="#B08A4F" stroke-width="1.5"><path d="M12 4l2.3 5.2 5.7.5-4.3 3.8 1.3 5.5L12 16.1 6.9 19l1.3-5.5L4 9.7l5.7-.5z"></path></svg>4,8</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="background: #FFFFFF; border: 1px solid #D8B99A; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 24px rgba(61,27,53,.10)">
+        <div style="position: relative; height: 160px; background: repeating-linear-gradient(135deg, #F7EFE4 0 10px, #F2E6D6 10px 20px); display: flex; align-items: center; justify-content: center">
+          <span style="font: 400 11px/16px 'SFMono-Regular', Menlo, monospace; letter-spacing: .5px; color: #857D88">foto da parceira 3:2</span>
+          <span style="position: absolute; top: 12px; left: 12px; padding: 7px 12px; border-radius: 4px; background: #3D1B35; color: #D8B99A; font: 600 13px/16px Montserrat; letter-spacing: .6px">15% OFF</span>
+        </div>
+        <div style="padding: 16px; display: flex; flex-direction: column; gap: 8px">
+          <span style="font: 500 11px/16px Montserrat; letter-spacing: .6px; text-transform: uppercase; color: #7A5A2E">Estética · hover</span>
+          <span style="font: 600 17px/24px Montserrat; letter-spacing: .2px; color: #1E1E1E">Clínica Dermé</span>
+          <span style="font: 400 13px/20px Montserrat; color: #5C5560">Limpeza de pele profunda com avaliação.</span>
+          <span style="font: 400 12px/18px Montserrat; color: #5C5560">Hover: borda champagne + elevação e-2, sem mover o card.</span>
+        </div>
+      </div>
+
+      <div style="background: #FFFFFF; border: 1px solid #EDE6DE; border-radius: 16px; overflow: hidden; opacity: .72">
+        <div style="position: relative; height: 160px; background: repeating-linear-gradient(135deg, #F1EDE9 0 10px, #EAE5E0 10px 20px); display: flex; align-items: center; justify-content: center">
+          <span style="font: 400 11px/16px 'SFMono-Regular', Menlo, monospace; letter-spacing: .5px; color: #857D88">foto da parceira 3:2</span>
+          <span style="position: absolute; top: 12px; left: 12px; padding: 7px 12px; border-radius: 4px; background: #F1EDE9; color: #857D88; font: 600 13px/16px Montserrat; letter-spacing: .6px">30% OFF</span>
+          <span style="position: absolute; bottom: 12px; left: 12px; padding: 6px 12px; border-radius: 4px; background: #F8EDEC; color: #8E3A38; font: 600 11px/14px Montserrat; letter-spacing: 1px; text-transform: uppercase">Esgotado hoje</span>
+        </div>
+        <div style="padding: 16px; display: flex; flex-direction: column; gap: 8px">
+          <span style="font: 500 11px/16px Montserrat; letter-spacing: .6px; text-transform: uppercase; color: #857D88">Gastronomia</span>
+          <span style="font: 600 17px/24px Montserrat; letter-spacing: .2px; color: #857D88">Casa Rosalie</span>
+          <span style="font: 400 13px/20px Montserrat; color: #857D88">Volta amanhã às 10h.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 32px">
+    <div style="display: flex; flex-direction: column; gap: 16px">
+      <h2 style="margin: 0; font: 600 12px/16px Montserrat; letter-spacing: 2px; text-transform: uppercase; color: #7A5A2E">Parceira em destaque</h2>
+      <div style="background: #3D1B35; border-radius: 16px; overflow: hidden; display: flex; flex-direction: column">
+        <div style="height: 180px; background: repeating-linear-gradient(135deg, #4B2242 0 12px, #431D3A 12px 24px); display: flex; align-items: center; justify-content: center">
+          <span style="font: 400 11px/16px 'SFMono-Regular', Menlo, monospace; letter-spacing: .5px; color: rgba(250,248,245,.6)">foto ambiente 16:9 · luz quente</span>
+        </div>
+        <div style="padding: 22px; display: flex; flex-direction: column; gap: 10px">
+          <span style="font: 500 11px/16px Montserrat; letter-spacing: 1.4px; text-transform: uppercase; color: #D8B99A">Curadoria ELA+</span>
+          <span style="font: 400 26px/32px 'Playfair Display', serif; letter-spacing: -.2px; color: #FAF8F5">Studio Lumière</span>
+          <span style="font: 400 14px/22px Montserrat; color: rgba(250,248,245,.72)">Três experiências exclusivas para assinantes Master, com horário reservado.</span>
+          <div style="height: 1px; background: rgba(216,185,154,.28); margin: 6px 0"></div>
+          <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px">
+            <span style="font: 600 13px/18px Montserrat; letter-spacing: .4px; color: #D8B99A">3 benefícios ativos</span>
+            <span style="font: 600 13px/18px Montserrat; letter-spacing: .4px; color: #FAF8F5">Ver parceira →</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 16px">
+      <h2 style="margin: 0; font: 600 12px/16px Montserrat; letter-spacing: 2px; text-transform: uppercase; color: #7A5A2E">Carteirinha de membro</h2>
+      <div style="background: #3D1B35; border: 1px solid #6B4A62; border-radius: 24px; padding: 26px; display: flex; flex-direction: column; gap: 26px; box-shadow: 0 8px 24px rgba(61,27,53,.10)">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 16px">
+          <div style="display: flex; flex-direction: column; gap: 6px">
+            <div style="display: flex; align-items: baseline; gap: 1px">
+              <span style="font: 400 34px/34px 'Playfair Display', serif; letter-spacing: -.6px; color: #FAF8F5">ELA</span>
+              <span style="font: 400 34px/34px 'Playfair Display', serif; letter-spacing: -.6px; color: #D8B99A">+</span>
+            </div>
+            <span style="font: 400 9px/12px Montserrat; letter-spacing: 2.4px; text-transform: uppercase; color: rgba(250,248,245,.66)">O privilégio de fazer parte</span>
+          </div>
+          <span style="padding: 7px 14px; border: 1px solid #D8B99A; border-radius: 999px; font: 600 10px/13px Montserrat; letter-spacing: 1.6px; text-transform: uppercase; color: #D8B99A">Master</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 20px">
+          <div style="display: flex; flex-direction: column; gap: 14px">
+            <div style="display: flex; flex-direction: column; gap: 4px">
+              <span style="font: 500 9px/12px Montserrat; letter-spacing: 1.6px; text-transform: uppercase; color: rgba(250,248,245,.6)">Membro</span>
+              <span style="font: 600 17px/22px Montserrat; letter-spacing: 1px; color: #FAF8F5">ANA MARTINS</span>
+            </div>
+            <div style="display: flex; gap: 28px">
+              <div style="display: flex; flex-direction: column; gap: 4px">
+                <span style="font: 500 9px/12px Montserrat; letter-spacing: 1.6px; text-transform: uppercase; color: rgba(250,248,245,.6)">Membro desde</span>
+                <span style="font: 500 13px/18px Montserrat; letter-spacing: .6px; color: #FAF8F5">03/2024</span>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 4px">
+                <span style="font: 500 9px/12px Montserrat; letter-spacing: 1.6px; text-transform: uppercase; color: rgba(250,248,245,.6)">Válida até</span>
+                <span style="font: 500 13px/18px Montserrat; letter-spacing: .6px; color: #FAF8F5">08/27</span>
+              </div>
+            </div>
+          </div>
+          <div style="width: 92px; height: 92px; border-radius: 12px; background: #FAF8F5; padding: 8px; display: flex; align-items: center; justify-content: center">
+            <svg width="76" height="76" viewBox="0 0 25 25" fill="#3D1B35"><path d="{{ qrCard }}"></path></svg>
+          </div>
+        </div>
+      </div>
+      <div style="font: 400 12px/18px Montserrat; color: #5C5560">Cartão ameixa com fio champagne 1px, raio 24px. Nome em caixa alta com tracking 1px, como em cartão físico. QR sempre sobre off white, nunca sobre ameixa.</div>
+    </div>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 16px">
+    <h2 style="margin: 0; font: 600 12px/16px Montserrat; letter-spacing: 2px; text-transform: uppercase; color: #7A5A2E">Resgate · componente-chave</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; align-items: start">
+      <div style="background: #FFFFFF; border: 1px solid #EDE6DE; border-radius: 16px; padding: 28px; display: flex; flex-direction: column; gap: 22px; align-items: center; text-align: center; box-shadow: 0 2px 8px rgba(61,27,53,.06)">
+        <div style="display: flex; flex-direction: column; gap: 6px">
+          <span style="font: 500 11px/16px Montserrat; letter-spacing: 1.4px; text-transform: uppercase; color: #7A5A2E">Salão Bahaus · 20% OFF</span>
+          <span style="font: 400 26px/32px 'Playfair Display', serif; letter-spacing: -.2px; color: #3D1B35">Mostre este código</span>
+          <span style="font: 400 14px/22px Montserrat; color: #5C5560">Apresente no caixa antes de pagar.</span>
+        </div>
+        <div style="width: 232px; height: 232px; border: 1px solid #E6DFD8; border-radius: 16px; background: #FFFFFF; padding: 16px; display: flex; align-items: center; justify-content: center">
+          <svg width="200" height="200" viewBox="0 0 25 25" fill="#3D1B35"><path d="{{ qrBig }}"></path></svg>
+        </div>
+        <div style="width: 100%; display: flex; flex-direction: column; gap: 8px">
+          <span style="font: 500 11px/16px Montserrat; letter-spacing: 1.4px; text-transform: uppercase; color: #5C5560">Ou digite o código</span>
+          <div style="display: flex; align-items: center; justify-content: center; gap: 12px; padding: 16px; border: 1px dashed #D8B99A; border-radius: 12px; background: #F7EFE4">
+            <span style="font: 600 26px/30px Montserrat; letter-spacing: 6px; color: #3D1B35">ELA·7K9M</span>
+          </div>
+        </div>
+        <div style="width: 100%; display: flex; flex-direction: column; gap: 8px">
+          <div style="display: flex; justify-content: space-between; align-items: baseline">
+            <span style="font: 500 11px/16px Montserrat; letter-spacing: 1.4px; text-transform: uppercase; color: #5C5560">Válido por</span>
+            <span style="font: 600 22px/26px Montserrat; letter-spacing: 1px; color: #3D1B35">{{ countdown }}</span>
+          </div>
+          <div style="height: 6px; width: 100%; background: #F0EAE3; border-radius: 999px; overflow: hidden">
+            <div style="{{ barStyle }}"></div>
+          </div>
+          <span style="font: 400 12px/18px Montserrat; color: #5C5560">Depois disso, você pode gerar um novo código sem custo.</span>
+        </div>
+        <button onClick="{{ restart }}" style="width: 100%; height: 52px; border: 1px solid #3D1B35; border-radius: 12px; background: transparent; color: #3D1B35; font: 600 15px/20px Montserrat; letter-spacing: .4px; cursor: pointer" style-hover="background: #F3EBF0">Gerar novo código</button>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 16px">
+        <div style="background: #F9F0E0; border: 1px solid #E7D4B4; border-radius: 12px; padding: 18px; display: flex; flex-direction: column; gap: 6px">
+          <span style="font: 600 12px/16px Montserrat; letter-spacing: 1.2px; text-transform: uppercase; color: #7A5A2E">Últimos 60 segundos</span>
+          <span style="font: 400 14px/22px Montserrat; color: #1E1E1E">O tempo muda para alerta (#7A5A2E) e a barra continua champagne. Sem piscar, sem vibrar.</span>
+        </div>
+        <div style="background: #F8EDEC; border: 1px solid #E4CBC9; border-radius: 12px; padding: 18px; display: flex; flex-direction: column; gap: 10px">
+          <span style="font: 600 12px/16px Montserrat; letter-spacing: 1.2px; text-transform: uppercase; color: #8E3A38">Código expirado</span>
+          <span style="font: 400 14px/22px Montserrat; color: #1E1E1E">"Este código expirou. Gere outro quando estiver na loja."</span>
+          <div style="width: 120px; height: 120px; border: 1px solid #E4CBC9; border-radius: 12px; background: #FFFFFF; display: flex; align-items: center; justify-content: center; opacity: .35">
+            <svg width="96" height="96" viewBox="0 0 25 25" fill="#3D1B35"><path d="{{ qrBig }}"></path></svg>
+          </div>
+        </div>
+        <div style="background: #FFFFFF; border: 1px solid #EDE6DE; border-radius: 12px; padding: 18px; display: flex; flex-direction: column; gap: 8px">
+          <span style="font: 600 12px/16px Montserrat; letter-spacing: 1.2px; text-transform: uppercase; color: #3D1B35">Regras do componente</span>
+          <span style="font: 400 13px/21px Montserrat; color: #5C5560">QR mínimo 200×200px, sempre em ameixa sobre branco puro, com 16px de área de silêncio. Código curto em Montserrat SemiBold 26px, tracking 6px, separado por ponto médio para leitura em voz alta. Brilho da tela sobe automaticamente ao abrir.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px">
+    <div style="display: flex; flex-direction: column; gap: 16px">
+      <h2 style="margin: 0; font: 600 12px/16px Montserrat; letter-spacing: 2px; text-transform: uppercase; color: #7A5A2E">Carteira · saldo</h2>
+      <div style="background: #3D1B35; border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 18px">
+        <div style="display: flex; flex-direction: column; gap: 6px">
+          <span style="font: 500 11px/16px Montserrat; letter-spacing: 1.4px; text-transform: uppercase; color: rgba(250,248,245,.66)">Disponível para usar</span>
+          <span style="font: 400 40px/44px 'Playfair Display', serif; letter-spacing: -.5px; color: #FAF8F5">R$ 248,90</span>
+        </div>
+        <div style="height: 1px; background: rgba(216,185,154,.28)"></div>
+        <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px">
+          <div style="display: flex; flex-direction: column; gap: 4px">
+            <span style="font: 500 11px/16px Montserrat; letter-spacing: 1.4px; text-transform: uppercase; color: rgba(250,248,245,.66)">Pendente</span>
+            <span style="font: 600 17px/24px Montserrat; color: #D8B99A">R$ 62,40</span>
+          </div>
+          <span style="padding: 8px 14px; border-radius: 999px; background: rgba(250,248,245,.10); font: 500 12px/16px Montserrat; color: rgba(250,248,245,.86)">libera em 12/09</span>
+        </div>
+      </div>
+      <div style="background: #ECEEF4; border: 1px solid #C9CFDD; border-radius: 12px; padding: 16px 18px; font: 400 13px/20px Montserrat; color: #3F4F70">O valor pendente é liberado após a parceira confirmar a compra — normalmente em até 30 dias.</div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 16px">
+      <h2 style="margin: 0; font: 600 12px/16px Montserrat; letter-spacing: 2px; text-transform: uppercase; color: #7A5A2E">Extrato</h2>
+      <div style="background: #FFFFFF; border: 1px solid #EDE6DE; border-radius: 16px; overflow: hidden; box-shadow: 0 2px 8px rgba(61,27,53,.06)">
+        <div style="padding: 16px 18px; border-bottom: 1px solid #F0EAE3; display: flex; justify-content: space-between; align-items: center; gap: 12px">
+          <div style="display: flex; flex-direction: column; gap: 3px">
+            <span style="font: 600 15px/22px Montserrat; color: #1E1E1E">Salão Bahaus</span>
+            <span style="font: 400 12px/18px Montserrat; color: #5C5560">28/08 · cashback 20%</span>
+          </div>
+          <span style="font: 600 15px/22px Montserrat; color: #2F5B44">+ R$ 38,00</span>
+        </div>
+        <div style="padding: 16px 18px; border-bottom: 1px solid #F0EAE3; display: flex; justify-content: space-between; align-items: center; gap: 12px">
+          <div style="display: flex; flex-direction: column; gap: 3px">
+            <span style="font: 600 15px/22px Montserrat; color: #1E1E1E">Clínica Dermé</span>
+            <span style="font: 400 12px/18px Montserrat; color: #5C5560">24/08 · aguardando confirmação</span>
+          </div>
+          <span style="font: 600 15px/22px Montserrat; color: #857D88">+ R$ 62,40</span>
+        </div>
+        <div style="padding: 16px 18px; border-bottom: 1px solid #F0EAE3; display: flex; justify-content: space-between; align-items: center; gap: 12px">
+          <div style="display: flex; flex-direction: column; gap: 3px">
+            <span style="font: 600 15px/22px Montserrat; color: #1E1E1E">Resgate para conta</span>
+            <span style="font: 400 12px/18px Montserrat; color: #5C5560">18/08 · Pix</span>
+          </div>
+          <span style="font: 600 15px/22px Montserrat; color: #1E1E1E">− R$ 150,00</span>
+        </div>
+        <div style="padding: 16px 18px; display: flex; justify-content: space-between; align-items: center; gap: 12px">
+          <div style="display: flex; flex-direction: column; gap: 3px">
+            <span style="font: 600 15px/22px Montserrat; color: #1E1E1E">Casa Rosalie</span>
+            <span style="font: 400 12px/18px Montserrat; color: #5C5560">11/08 · cashback 10%</span>
+          </div>
+          <span style="font: 600 15px/22px Montserrat; color: #2F5B44">+ R$ 24,50</span>
+        </div>
+      </div>
+      <div style="font: 400 12px/18px Montserrat; color: #5C5560">Entradas em sucesso, saídas em grafite, pendentes em cinza. Sem setas coloridas nem ícones de dinheiro.</div>
+    </div>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 16px">
+    <h2 style="margin: 0; font: 600 12px/16px Montserrat; letter-spacing: 2px; text-transform: uppercase; color: #7A5A2E">Planos</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; align-items: start">
+      <div style="background: #FFFFFF; border: 1px solid #EDE6DE; border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+        <div style="display: flex; flex-direction: column; gap: 6px">
+          <span style="font: 600 12px/16px Montserrat; letter-spacing: 1.4px; text-transform: uppercase; color: #5C5560">Grátis</span>
+          <span style="font: 400 32px/38px 'Playfair Display', serif; letter-spacing: -.4px; color: #3D1B35">R$ 0</span>
+          <span style="font: 400 12px/18px Montserrat; color: #5C5560">para conhecer</span>
+        </div>
+        <div style="height: 1px; background: #F0EAE3"></div>
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <span style="font: 400 13px/20px Montserrat; color: #1E1E1E">3 benefícios por mês</span>
+          <span style="font: 400 13px/20px Montserrat; color: #1E1E1E">Curadoria semanal</span>
+          <span style="font: 400 13px/20px Montserrat; color: #857D88">Sem cashback</span>
+        </div>
+        <button style="height: 48px; border: 1px solid #3D1B35; border-radius: 12px; background: transparent; color: #3D1B35; font: 600 14px/20px Montserrat; letter-spacing: .4px; cursor: pointer" style-hover="background: #F3EBF0">Começar</button>
+      </div>
+
+      <div style="background: #FFFFFF; border: 1px solid #EDE6DE; border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+        <div style="display: flex; flex-direction: column; gap: 6px">
+          <span style="font: 600 12px/16px Montserrat; letter-spacing: 1.4px; text-transform: uppercase; color: #5C5560">Básico</span>
+          <span style="font: 400 32px/38px 'Playfair Display', serif; letter-spacing: -.4px; color: #3D1B35">R$ 19<span style="font: 400 14px/20px Montserrat; color: #5C5560">/mês</span></span>
+          <span style="font: 400 12px/18px Montserrat; color: #5C5560">para usar sempre</span>
+        </div>
+        <div style="height: 1px; background: #F0EAE3"></div>
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <span style="font: 400 13px/20px Montserrat; color: #1E1E1E">Benefícios ilimitados</span>
+          <span style="font: 400 13px/20px Montserrat; color: #1E1E1E">Cashback 3%</span>
+          <span style="font: 400 13px/20px Montserrat; color: #857D88">Sem experiências exclusivas</span>
+        </div>
+        <button style="height: 48px; border: 1px solid #3D1B35; border-radius: 12px; background: transparent; color: #3D1B35; font: 600 14px/20px Montserrat; letter-spacing: .4px; cursor: pointer" style-hover="background: #F3EBF0">Assinar</button>
+      </div>
+
+      <div style="background: #3D1B35; border: 1px solid #D8B99A; border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 16px; box-shadow: 0 8px 24px rgba(61,27,53,.10); position: relative">
+        <span style="position: absolute; top: -12px; left: 24px; padding: 6px 12px; border-radius: 4px; background: #D8B99A; color: #3D1B35; font: 600 10px/13px Montserrat; letter-spacing: 1.4px; text-transform: uppercase">Recomendado</span>
+        <div style="display: flex; flex-direction: column; gap: 6px">
+          <span style="font: 600 12px/16px Montserrat; letter-spacing: 1.4px; text-transform: uppercase; color: #D8B99A">Intermediário</span>
+          <span style="font: 400 32px/38px 'Playfair Display', serif; letter-spacing: -.4px; color: #FAF8F5">R$ 39<span style="font: 400 14px/20px Montserrat; color: rgba(250,248,245,.7)">/mês</span></span>
+          <span style="font: 400 12px/18px Montserrat; color: rgba(250,248,245,.7)">o equilíbrio da maioria</span>
+        </div>
+        <div style="height: 1px; background: rgba(216,185,154,.28)"></div>
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <span style="font: 400 13px/20px Montserrat; color: #FAF8F5">Tudo do Básico</span>
+          <span style="font: 400 13px/20px Montserrat; color: #FAF8F5">Cashback 7%</span>
+          <span style="font: 400 13px/20px Montserrat; color: #FAF8F5">Experiências mensais</span>
+        </div>
+        <button style="height: 48px; border: 0; border-radius: 12px; background: #D8B99A; color: #3D1B35; font: 600 14px/20px Montserrat; letter-spacing: .4px; cursor: pointer" style-hover="background: #C9A882">Assinar</button>
+      </div>
+
+      <div style="background: #FFFFFF; border: 1px solid #EDE6DE; border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+        <div style="display: flex; flex-direction: column; gap: 6px">
+          <span style="font: 600 12px/16px Montserrat; letter-spacing: 1.4px; text-transform: uppercase; color: #7A5A2E">Master</span>
+          <span style="font: 400 32px/38px 'Playfair Display', serif; letter-spacing: -.4px; color: #3D1B35">R$ 79<span style="font: 400 14px/20px Montserrat; color: #5C5560">/mês</span></span>
+          <span style="font: 400 12px/18px Montserrat; color: #5C5560">para viver o clube inteiro</span>
+        </div>
+        <div style="height: 1px; background: #F0EAE3"></div>
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <span style="font: 400 13px/20px Montserrat; color: #1E1E1E">Tudo do Intermediário</span>
+          <span style="font: 400 13px/20px Montserrat; color: #1E1E1E">Cashback 12%</span>
+          <span style="font: 400 13px/20px Montserrat; color: #1E1E1E">Concierge e convites</span>
+        </div>
+        <button style="height: 48px; border: 1px solid #3D1B35; border-radius: 12px; background: transparent; color: #3D1B35; font: 600 14px/20px Montserrat; letter-spacing: .4px; cursor: pointer" style-hover="background: #F3EBF0">Assinar</button>
+      </div>
+    </div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); gap: 32px">
+    <div style="display: flex; flex-direction: column; gap: 16px">
+      <h2 style="margin: 0; font: 600 12px/16px Montserrat; letter-spacing: 2px; text-transform: uppercase; color: #7A5A2E">App bar</h2>
+      <div style="width: 100%; max-width: 390px; background: #3D1B35; border-radius: 12px; padding: 16px 20px; display: flex; align-items: center; justify-content: space-between; gap: 12px">
+        <div style="display: flex; align-items: baseline; gap: 1px"><span style="font: 400 22px/24px 'Playfair Display', serif; color: #FAF8F5">ELA</span><span style="font: 400 22px/24px 'Playfair Display', serif; color: #D8B99A">+</span></div>
+        <div style="display: flex; gap: 16px">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FAF8F5" stroke-width="1.5" stroke-linecap="round"><path d="M18 15v-4a6 6 0 1 0-12 0v4l-1.5 3h15z"></path><path d="M10 20h4"></path></svg>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FAF8F5" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="9" r="3"></circle><path d="M5 20c0-3.3 3.1-5.5 7-5.5s7 2.2 7 5.5"></path></svg>
+        </div>
+      </div>
+      <div style="width: 100%; max-width: 390px; background: #FAF8F5; border: 1px solid #EDE6DE; border-radius: 12px; padding: 16px 20px; display: flex; align-items: center; gap: 14px">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3D1B35" stroke-width="1.5" stroke-linecap="round"><path d="M15 5l-7 7 7 7"></path></svg>
+        <span style="font: 600 17px/24px Montserrat; letter-spacing: .2px; color: #1E1E1E">Detalhe do benefício</span>
+      </div>
+      <div style="font: 400 12px/18px Montserrat; color: #5C5560">Ameixa nas telas de marca (home, carteirinha); off white com título grafite nas telas internas.</div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 16px">
+      <h2 style="margin: 0; font: 600 12px/16px Montserrat; letter-spacing: 2px; text-transform: uppercase; color: #7A5A2E">Tab bar · 5 itens</h2>
+      <div style="width: 100%; max-width: 390px; background: #FFFFFF; border: 1px solid #EDE6DE; border-radius: 12px; padding: 10px 8px 14px; display: flex; justify-content: space-between; box-shadow: 0 -8px 40px rgba(61,27,53,.08)">
+        <div style="flex: 1; min-height: 44px; display: flex; flex-direction: column; align-items: center; gap: 5px">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3D1B35" stroke-width="1.5" stroke-linecap="round"><path d="M4 11l8-6 8 6v8a1 1 0 0 1-1 1h-4v-6H9v6H5a1 1 0 0 1-1-1z"></path></svg>
+          <span style="font: 600 10px/13px Montserrat; letter-spacing: .4px; color: #3D1B35">Início</span>
+          <span style="width: 4px; height: 4px; border-radius: 50%; background: #D8B99A"></span>
+        </div>
+        <div style="flex: 1; min-height: 44px; display: flex; flex-direction: column; align-items: center; gap: 5px">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#857D88" stroke-width="1.5" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-4.2-4.2"></path></svg>
+          <span style="font: 500 10px/13px Montserrat; letter-spacing: .4px; color: #857D88">Buscar</span>
+        </div>
+        <div style="flex: 1; min-height: 44px; display: flex; flex-direction: column; align-items: center; gap: 5px">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#857D88" stroke-width="1.5" stroke-linecap="round"><rect x="4" y="4" width="6" height="6" rx="1"></rect><rect x="14" y="4" width="6" height="6" rx="1"></rect><rect x="4" y="14" width="6" height="6" rx="1"></rect><path d="M14 14h6v6h-6z"></path></svg>
+          <span style="font: 500 10px/13px Montserrat; letter-spacing: .4px; color: #857D88">Carteirinha</span>
+        </div>
+        <div style="flex: 1; min-height: 44px; display: flex; flex-direction: column; align-items: center; gap: 5px">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#857D88" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="6" width="18" height="13" rx="2"></rect><path d="M3 10h18"></path></svg>
+          <span style="font: 500 10px/13px Montserrat; letter-spacing: .4px; color: #857D88">Carteira</span>
+        </div>
+        <div style="flex: 1; min-height: 44px; display: flex; flex-direction: column; align-items: center; gap: 5px">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#857D88" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="9" r="3"></circle><path d="M5 20c0-3.3 3.1-5.5 7-5.5s7 2.2 7 5.5"></path></svg>
+          <span style="font: 500 10px/13px Montserrat; letter-spacing: .4px; color: #857D88">Perfil</span>
+        </div>
+      </div>
+      <div style="font: 400 12px/18px Montserrat; color: #5C5560">Item ativo: ícone e label em ameixa + ponto champagne de 4px. Inativos em #857D88. Nunca preencher o ícone.</div>
+    </div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px">
+    <div style="display: flex; flex-direction: column; gap: 16px">
+      <h2 style="margin: 0; font: 600 12px/16px Montserrat; letter-spacing: 2px; text-transform: uppercase; color: #7A5A2E">Modal e bottom sheet</h2>
+      <div style="background: rgba(42,18,36,.45); border-radius: 16px; padding: 28px; display: flex; align-items: center; justify-content: center">
+        <div style="width: 100%; max-width: 320px; background: #FFFFFF; border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 14px; box-shadow: 0 8px 24px rgba(61,27,53,.16)">
+          <span style="font: 400 22px/28px 'Playfair Display', serif; color: #3D1B35">Confirmar o resgate?</span>
+          <span style="font: 400 14px/22px Montserrat; color: #5C5560">O código fica válido por 5 minutos. Use apenas quando estiver na loja.</span>
+          <div style="display: flex; flex-direction: column; gap: 8px; padding-top: 4px">
+            <button style="height: 48px; border: 0; border-radius: 12px; background: #3D1B35; color: #FAF8F5; font: 600 14px/20px Montserrat; letter-spacing: .4px; cursor: pointer">Gerar código</button>
+            <button style="height: 48px; border: 0; border-radius: 12px; background: transparent; color: #7A5A2E; font: 600 14px/20px Montserrat; letter-spacing: .4px; cursor: pointer">Agora não</button>
+          </div>
+        </div>
+      </div>
+      <div style="background: rgba(42,18,36,.45); border-radius: 16px; padding: 28px 0 0; display: flex; align-items: flex-end; justify-content: center">
+        <div style="width: 100%; max-width: 340px; background: #FFFFFF; border-radius: 24px 24px 0 0; padding: 14px 24px 24px; display: flex; flex-direction: column; gap: 14px; box-shadow: 0 -8px 40px rgba(61,27,53,.16)">
+          <span style="width: 44px; height: 4px; border-radius: 999px; background: #E6DFD8; margin: 0 auto"></span>
+          <span style="font: 400 22px/28px 'Playfair Display', serif; color: #3D1B35">Filtrar benefícios</span>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px">
+            <span style="padding: 9px 16px; border-radius: 999px; border: 1px solid #6E4F6C; background: #EFE7EE; color: #6E4F6C; font: 600 13px/16px Montserrat">Perto de mim</span>
+            <span style="padding: 9px 16px; border-radius: 999px; border: 1px solid #E6DFD8; background: #FFF; color: #3D1B35; font: 600 13px/16px Montserrat">Maior desconto</span>
+            <span style="padding: 9px 16px; border-radius: 999px; border: 1px solid #E6DFD8; background: #FFF; color: #3D1B35; font: 600 13px/16px Montserrat">Novidades</span>
+          </div>
+          <button style="height: 48px; border: 0; border-radius: 12px; background: #3D1B35; color: #FAF8F5; font: 600 14px/20px Montserrat; letter-spacing: .4px; cursor: pointer">Aplicar</button>
+        </div>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 16px">
+      <h2 style="margin: 0; font: 600 12px/16px Montserrat; letter-spacing: 2px; text-transform: uppercase; color: #7A5A2E">Toasts</h2>
+      <div style="display: flex; flex-direction: column; gap: 12px">
+        <div style="background: #3D1B35; border-radius: 12px; padding: 16px 18px; display: flex; align-items: center; gap: 12px; box-shadow: 0 8px 24px rgba(61,27,53,.16)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D8B99A" stroke-width="1.5" stroke-linecap="round"><path d="M5 13l4 4 10-10"></path></svg>
+          <span style="font: 500 14px/20px Montserrat; color: #FAF8F5">Benefício salvo nos seus favoritos.</span>
+        </div>
+        <div style="background: #E9F0EB; border: 1px solid #CBDCD1; border-radius: 12px; padding: 16px 18px; display: flex; align-items: center; gap: 12px">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2F5B44" stroke-width="1.5" stroke-linecap="round"><path d="M5 13l4 4 10-10"></path></svg>
+          <span style="font: 500 14px/20px Montserrat; color: #2F5B44">Resgate confirmado. Aproveite.</span>
+        </div>
+        <div style="background: #F8EDEC; border: 1px solid #E4CBC9; border-radius: 12px; padding: 16px 18px; display: flex; align-items: center; gap: 12px">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8E3A38" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="8"></circle><path d="M12 8v5M12 16h.01"></path></svg>
+          <span style="font: 500 14px/20px Montserrat; color: #8E3A38">Não conseguimos validar este código.</span>
+        </div>
+        <div style="background: #ECEEF4; border: 1px solid #C9CFDD; border-radius: 12px; padding: 16px 18px; display: flex; align-items: center; gap: 12px">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3F4F70" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="8"></circle><path d="M12 11v5M12 8h.01"></path></svg>
+          <span style="font: 500 14px/20px Montserrat; color: #3F4F70">Seu saldo pendente libera em 12/09.</span>
+        </div>
+      </div>
+      <div style="font: 400 12px/18px Montserrat; color: #5C5560">Aparecem acima da tab bar por 4s, com fade + 8px de subida. Uma linha, sem botão de fechar.</div>
+    </div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px">
+    <div style="display: flex; flex-direction: column; gap: 16px">
+      <h2 style="margin: 0; font: 600 12px/16px Montserrat; letter-spacing: 2px; text-transform: uppercase; color: #7A5A2E">Empty states</h2>
+      <div style="background: #FFFFFF; border: 1px solid #EDE6DE; border-radius: 16px; padding: 32px 24px; display: flex; flex-direction: column; gap: 12px; align-items: center; text-align: center">
+        <span style="width: 56px; height: 56px; border: 1px solid #E7D4B4; border-radius: 999px; background: #F7EFE4; display: flex; align-items: center; justify-content: center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B08A4F" stroke-width="1.5" stroke-linecap="round"><path d="M12 20s-7-4.6-7-9.5A4.5 4.5 0 0 1 12 7a4.5 4.5 0 0 1 7 3.5C19 15.4 12 20 12 20z"></path></svg></span>
+        <span style="font: 400 22px/28px 'Playfair Display', serif; color: #3D1B35">Nada salvo por aqui ainda</span>
+        <span style="max-width: 280px; font: 400 14px/22px Montserrat; color: #5C5560">Toque no coração dos benefícios que te interessam — eles ficam guardados nesta lista.</span>
+        <button style="height: 48px; padding: 0 22px; border: 1px solid #3D1B35; border-radius: 12px; background: transparent; color: #3D1B35; font: 600 14px/20px Montserrat; letter-spacing: .4px; cursor: pointer; margin-top: 4px">Descobrir benefícios</button>
+      </div>
+      <div style="background: #FFFFFF; border: 1px solid #EDE6DE; border-radius: 16px; padding: 28px 24px; display: flex; flex-direction: column; gap: 10px; align-items: center; text-align: center">
+        <span style="font: 400 20px/26px 'Playfair Display', serif; color: #3D1B35">Nenhum resultado para "spa 24h"</span>
+        <span style="max-width: 300px; font: 400 14px/22px Montserrat; color: #5C5560">Tente uma busca mais ampla ou explore por categoria. Novas parceiras entram toda semana.</span>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 16px">
+      <h2 style="margin: 0; font: 600 12px/16px Montserrat; letter-spacing: 2px; text-transform: uppercase; color: #7A5A2E">Skeletons</h2>
+      <div style="background: #FFFFFF; border: 1px solid #EDE6DE; border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 16px">
+        <div style="display: flex; flex-direction: column; gap: 10px">
+          <div style="height: 160px; border-radius: 12px; background: #F1EDE9; animation: elaPulse 1400ms ease-in-out infinite"></div>
+          <div style="height: 12px; width: 40%; border-radius: 4px; background: #F1EDE9; animation: elaPulse 1400ms ease-in-out infinite"></div>
+          <div style="height: 16px; width: 70%; border-radius: 4px; background: #F1EDE9; animation: elaPulse 1400ms ease-in-out infinite"></div>
+          <div style="height: 12px; width: 55%; border-radius: 4px; background: #F1EDE9; animation: elaPulse 1400ms ease-in-out infinite"></div>
+        </div>
+        <div style="display: flex; gap: 12px; align-items: center">
+          <div style="width: 56px; height: 56px; border-radius: 12px; background: #F1EDE9; animation: elaPulse 1400ms ease-in-out infinite"></div>
+          <div style="flex: 1; display: flex; flex-direction: column; gap: 8px">
+            <div style="height: 14px; width: 60%; border-radius: 4px; background: #F1EDE9; animation: elaPulse 1400ms ease-in-out infinite"></div>
+            <div style="height: 12px; width: 35%; border-radius: 4px; background: #F1EDE9; animation: elaPulse 1400ms ease-in-out infinite"></div>
+          </div>
+        </div>
+        <div style="border-top: 1px solid #F0EAE3; padding-top: 12px; font: 400 12px/18px Montserrat; color: #5C5560">Blocos em #F1EDE9 com pulso de 1400ms. Nunca spinner em tela cheia; nunca texto "carregando...".</div>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+function qrPath(seed) {
+  const n = 25;
+  let s = seed;
+  const rnd = () => { s = (s * 1103515245 + 12345) & 0x7fffffff; return s / 0x7fffffff; };
+  const inFinder = (x, y) =>
+    (x < 8 && y < 8) || (x > 16 && y < 8) || (x < 8 && y > 16);
+  let d = "";
+  const on = (x, y) => { d += "M" + x + " " + y + "h1v1h-1z"; };
+  const finder = (ox, oy) => {
+    for (let i = 0; i < 7; i++) { on(ox + i, oy); on(ox + i, oy + 6); on(ox, oy + i); on(ox + 6, oy + i); }
+    for (let i = 2; i < 5; i++) for (let j = 2; j < 5; j++) on(ox + i, oy + j);
+  };
+  finder(0, 0); finder(18, 0); finder(0, 18);
+  for (let y = 0; y < n; y++)
+    for (let x = 0; x < n; x++)
+      if (!inFinder(x, y) && rnd() > 0.52) on(x, y);
+  return d;
+}
+
+class Component extends DCLogic {
+  state = { secs: 296 };
+  componentDidMount() {
+    this.timer = setInterval(() => {
+      this.setState((s) => ({ secs: s.secs > 0 ? s.secs - 1 : 0 }));
+    }, 1000);
+  }
+  componentWillUnmount() { clearInterval(this.timer); }
+  renderVals() {
+    const s = this.state.secs;
+    const mm = String(Math.floor(s / 60)).padStart(2, "0");
+    const ss = String(s % 60).padStart(2, "0");
+    return {
+      qrCard: qrPath(7),
+      qrBig: qrPath(23),
+      countdown: mm + ":" + ss,
+      barStyle: { height: "100%", width: (s / 300) * 100 + "%", background: "#D8B99A", borderRadius: "999px", transition: "width 1s linear" },
+      restart: () => this.setState({ secs: 296 }),
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+.ela-card {
+  background: var(--surface-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-e1);
+  overflow: hidden;
+  font-family: var(--font-sans);
+  color: var(--text-primary);
+}
+
+.ela-card--pad-md {
+  padding: var(--space-6);
+}
+
+.ela-card--pad-lg {
+  padding: var(--space-8);
+}
+
+.ela-card--elevated {
+  box-shadow: var(--shadow-e2);
+}
+
+.ela-card--gold {
+  border-color: var(--border-gold);
+}

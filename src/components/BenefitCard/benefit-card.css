@@ -1,0 +1,149 @@
+.ela-benefit-card {
+  display: block;
+  width: 100%;
+  padding: 0;
+  background: var(--surface-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-e1);
+  overflow: hidden;
+  text-align: left;
+  font-family: var(--font-sans);
+  transition:
+    border-color var(--dur-base) var(--ease-standard),
+    box-shadow var(--dur-base) var(--ease-standard);
+}
+
+button.ela-benefit-card {
+  cursor: pointer;
+}
+
+/* Hover: champagne border + e2 elevation, without moving the card. */
+button.ela-benefit-card:hover {
+  border-color: var(--border-gold);
+  box-shadow: var(--shadow-e2);
+}
+
+button.ela-benefit-card:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+.ela-benefit-card--unavailable {
+  opacity: 0.72;
+}
+
+.ela-benefit-card__media {
+  position: relative;
+  height: 160px;
+  background: var(--surface-raised);
+}
+
+.ela-benefit-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.ela-benefit-card__discount {
+  position: absolute;
+  top: var(--space-3);
+  left: var(--space-3);
+  padding: 7px var(--space-3);
+  border-radius: var(--radius-xs);
+  background: var(--surface-brand);
+  color: var(--ela-champagne);
+  font-size: var(--fs-small);
+  line-height: 16px;
+  letter-spacing: 0.6px;
+  font-weight: var(--fw-semibold);
+}
+
+.ela-benefit-card--unavailable .ela-benefit-card__discount {
+  background: var(--surface-disabled);
+  color: var(--text-disabled);
+}
+
+.ela-benefit-card__action {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+}
+
+.ela-benefit-card__unavailable {
+  position: absolute;
+  bottom: var(--space-3);
+  left: var(--space-3);
+  padding: 6px var(--space-3);
+  border-radius: var(--radius-xs);
+  background: var(--error-surface);
+  color: var(--error);
+  font-size: var(--fs-caption);
+  line-height: 14px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: var(--fw-semibold);
+}
+
+.ela-benefit-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-4);
+}
+
+.ela-benefit-card__category {
+  font-size: var(--fs-caption);
+  line-height: var(--lh-caption);
+  letter-spacing: var(--ls-caption);
+  text-transform: uppercase;
+  font-weight: var(--fw-medium);
+  color: var(--ela-lilac-700);
+}
+
+.ela-benefit-card__name {
+  font-size: var(--fs-h4);
+  line-height: var(--lh-h4);
+  letter-spacing: var(--ls-h4);
+  font-weight: var(--fw-semibold);
+  color: var(--text-primary);
+}
+
+.ela-benefit-card__description {
+  font-size: var(--fs-small);
+  line-height: var(--lh-small);
+  color: var(--text-secondary);
+}
+
+.ela-benefit-card--unavailable .ela-benefit-card__category,
+.ela-benefit-card--unavailable .ela-benefit-card__name,
+.ela-benefit-card--unavailable .ela-benefit-card__description {
+  color: var(--text-secondary);
+}
+
+.ela-benefit-card__meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-top: var(--space-1);
+}
+
+.ela-benefit-card__meta-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--text-secondary);
+}
+
+.ela-benefit-card__meta-item svg {
+  color: var(--ela-champagne-600);
+}
+
+.ela-benefit-card__divider {
+  width: 1px;
+  height: var(--space-3);
+  background: var(--border-default);
+}

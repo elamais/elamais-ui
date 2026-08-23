@@ -1,0 +1,30 @@
+/* Blocks in surface-disabled with a 1400ms pulse. */
+.ela-skeleton {
+  display: block;
+  background: var(--surface-disabled);
+  animation: ela-pulse 1400ms ease-in-out infinite;
+}
+
+.ela-skeleton--text {
+  height: var(--space-3);
+  width: 100%;
+  border-radius: var(--radius-xs);
+}
+
+.ela-skeleton--rect {
+  height: var(--space-16);
+  width: 100%;
+  border-radius: var(--radius-md);
+}
+
+.ela-skeleton--circle {
+  width: var(--space-12);
+  height: var(--space-12);
+  border-radius: var(--radius-full);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ela-skeleton {
+    animation: none;
+  }
+}

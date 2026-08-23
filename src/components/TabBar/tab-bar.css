@@ -1,0 +1,61 @@
+/* Active item: plum icon and label + 4px champagne dot. Inactive items muted.
+   Icons are always outlines — never filled. */
+.ela-tab-bar {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px var(--space-2) 14px;
+  background: var(--surface-card);
+  border-top: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-e3);
+  font-family: var(--font-sans);
+}
+
+.ela-tab-bar__item {
+  flex: 1;
+  min-height: var(--touch-min);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.ela-tab-bar__item:focus-visible {
+  outline: none;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--focus-ring);
+}
+
+.ela-tab-bar__item--active {
+  color: var(--ela-plum);
+}
+
+.ela-tab-bar__icon {
+  display: flex;
+}
+
+.ela-tab-bar__label {
+  font-size: 10px;
+  line-height: 13px;
+  letter-spacing: 0.4px;
+  font-weight: var(--fw-medium);
+}
+
+.ela-tab-bar__item--active .ela-tab-bar__label {
+  font-weight: var(--fw-semibold);
+}
+
+.ela-tab-bar__dot {
+  width: var(--space-1);
+  height: var(--space-1);
+  border-radius: var(--radius-full);
+  background: transparent;
+}
+
+.ela-tab-bar__dot--visible {
+  background: var(--ela-champagne);
+}

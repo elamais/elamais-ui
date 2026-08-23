@@ -1,0 +1,139 @@
+.ela-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 52px;
+  min-width: var(--touch-min);
+  padding: 0 var(--space-6);
+  border: 0;
+  border-radius: var(--radius-md);
+  background: transparent;
+  font-family: var(--font-sans);
+  font-size: var(--fs-button);
+  line-height: var(--lh-button);
+  letter-spacing: var(--ls-button);
+  font-weight: var(--fw-semibold);
+  cursor: pointer;
+  transition:
+    background-color var(--dur-fast) var(--ease-standard),
+    border-color var(--dur-fast) var(--ease-standard),
+    color var(--dur-fast) var(--ease-standard);
+}
+
+@media (min-width: 1024px) {
+  .ela-button {
+    height: 48px;
+  }
+}
+
+.ela-button:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+.ela-button:disabled {
+  cursor: default;
+}
+
+.ela-button--full {
+  width: 100%;
+}
+
+/* Primary */
+.ela-button--primary {
+  background: var(--surface-brand);
+  color: var(--text-on-brand);
+}
+
+.ela-button--primary:hover:not(:disabled) {
+  background: var(--ela-plum-600);
+}
+
+.ela-button--primary:active:not(:disabled) {
+  background: var(--ela-plum-900);
+}
+
+.ela-button--primary:disabled {
+  background: var(--surface-disabled);
+  color: var(--text-disabled);
+}
+
+/* Secondary */
+.ela-button--secondary {
+  border: 1px solid var(--ela-plum);
+  color: var(--ela-plum);
+}
+
+.ela-button--secondary:hover:not(:disabled) {
+  background: var(--ela-plum-050);
+}
+
+.ela-button--secondary:active:not(:disabled) {
+  border-color: var(--ela-plum-900);
+  background: var(--ela-plum-050);
+  color: var(--ela-plum-900);
+}
+
+.ela-button--secondary:disabled {
+  border-color: var(--border-default);
+  color: var(--text-disabled);
+}
+
+/* Ghost */
+.ela-button--ghost {
+  padding: 0 var(--space-5);
+  color: var(--text-gold);
+}
+
+.ela-button--ghost:hover:not(:disabled) {
+  background: var(--surface-gold);
+}
+
+.ela-button--ghost:active:not(:disabled) {
+  background: var(--surface-gold);
+  color: var(--ela-champagne-800);
+}
+
+.ela-button--ghost:disabled {
+  color: var(--text-disabled);
+}
+
+/* Destructive (outline; solid confirmation lives inside modals only) */
+.ela-button--destructive {
+  border: 1px solid var(--error);
+  color: var(--error);
+}
+
+.ela-button--destructive:hover:not(:disabled) {
+  background: var(--error-surface);
+}
+
+.ela-button--destructive:active:not(:disabled) {
+  background: var(--error-surface);
+}
+
+.ela-button--destructive:disabled {
+  border-color: var(--border-default);
+  color: var(--text-disabled);
+}
+
+/* Loading spinner */
+.ela-button--loading {
+  cursor: progress;
+}
+
+.ela-button__spinner {
+  width: 16px;
+  height: 16px;
+  flex: none;
+  border: 2px solid var(--border-default);
+  border-top-color: var(--text-gold);
+  border-radius: var(--radius-full);
+  animation: ela-spin 700ms linear infinite;
+}
+
+.ela-button--primary .ela-button__spinner {
+  border-color: rgba(250, 248, 245, 0.35);
+  border-top-color: var(--ela-champagne);
+}

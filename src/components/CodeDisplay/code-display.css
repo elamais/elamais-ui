@@ -1,0 +1,188 @@
+.ela-code-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-5);
+  padding: var(--space-8) var(--space-6);
+  background: var(--surface-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-e1);
+  text-align: center;
+  font-family: var(--font-sans);
+}
+
+.ela-code-display__head {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ela-code-display__context {
+  font-size: var(--fs-caption);
+  line-height: var(--lh-caption);
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  font-weight: var(--fw-medium);
+  color: var(--text-gold);
+}
+
+.ela-code-display__title {
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  line-height: var(--lh-h2);
+  letter-spacing: var(--ls-h2);
+  color: var(--ela-plum);
+}
+
+.ela-code-display__instruction {
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--text-secondary);
+}
+
+/* QR: minimum 200x200, plum on pure white with a 16px quiet zone. */
+.ela-code-display__qr {
+  min-width: 232px;
+  min-height: 232px;
+  padding: var(--space-4);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  background: var(--surface-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity var(--dur-base) var(--ease-standard);
+}
+
+.ela-code-display--expired .ela-code-display__qr {
+  opacity: 0.35;
+}
+
+.ela-code-display__code-block {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.ela-code-display__label {
+  font-size: var(--fs-caption);
+  line-height: var(--lh-caption);
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  font-weight: var(--fw-medium);
+  color: var(--text-secondary);
+}
+
+/* Short code: Montserrat SemiBold 26px, tracking 6px, middle-dot separated. */
+.ela-code-display__code {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border: 1px dashed var(--border-gold);
+  border-radius: var(--radius-md);
+  background: var(--surface-gold);
+  font-size: 26px;
+  line-height: 30px;
+  letter-spacing: 6px;
+  font-weight: var(--fw-semibold);
+  color: var(--ela-plum);
+}
+
+.ela-code-display--expired .ela-code-display__code {
+  opacity: 0.45;
+}
+
+.ela-code-display__validity {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.ela-code-display__validity-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.ela-code-display__time {
+  font-size: 22px;
+  line-height: 26px;
+  letter-spacing: 1px;
+  font-weight: var(--fw-semibold);
+  color: var(--ela-plum);
+}
+
+/* Last 60 seconds: the time switches to the warning tone; the bar stays
+   champagne. No blinking, no vibration. */
+.ela-code-display--warning .ela-code-display__time {
+  color: var(--warning);
+}
+
+.ela-code-display__track {
+  height: 6px;
+  width: 100%;
+  background: var(--border-subtle);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.ela-code-display__bar {
+  height: 100%;
+  background: var(--ela-champagne);
+  border-radius: var(--radius-full);
+  transition: width 1s linear;
+}
+
+.ela-code-display__footnote {
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--text-secondary);
+}
+
+.ela-code-display__expired {
+  margin: 0;
+  width: 100%;
+  padding: var(--space-4);
+  border: 1px solid var(--error-border);
+  border-radius: var(--radius-md);
+  background: var(--error-surface);
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--error);
+}
+
+.ela-code-display__regenerate {
+  width: 100%;
+  height: 52px;
+  border: 1px solid var(--ela-plum);
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--ela-plum);
+  font-family: var(--font-sans);
+  font-size: var(--fs-button);
+  line-height: var(--lh-button);
+  letter-spacing: var(--ls-button);
+  font-weight: var(--fw-semibold);
+  cursor: pointer;
+  transition: background-color var(--dur-fast) var(--ease-standard);
+}
+
+@media (min-width: 1024px) {
+  .ela-code-display__regenerate {
+    height: 48px;
+  }
+}
+
+.ela-code-display__regenerate:hover {
+  background: var(--ela-plum-050);
+}
+
+.ela-code-display__regenerate:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}

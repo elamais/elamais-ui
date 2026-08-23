@@ -1,0 +1,85 @@
+/* Plum on brand screens (home, member card); off-white with graphite title on
+   inner screens. */
+.ela-app-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--gutter-mobile);
+  font-family: var(--font-sans);
+}
+
+@media (min-width: 1024px) {
+  .ela-app-bar {
+    padding: var(--space-4) var(--gutter-desktop);
+  }
+}
+
+.ela-app-bar--brand {
+  background: var(--surface-brand);
+  color: var(--text-on-brand);
+}
+
+.ela-app-bar--page {
+  background: var(--surface-page);
+  border-bottom: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+}
+
+.ela-app-bar__logo {
+  display: flex;
+  align-items: baseline;
+  gap: 1px;
+  font-family: var(--font-display);
+  font-size: 22px;
+  line-height: 24px;
+  color: var(--text-on-brand);
+}
+
+.ela-app-bar__logo-plus {
+  color: var(--ela-champagne);
+}
+
+.ela-app-bar__lead {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: var(--touch-min);
+}
+
+.ela-app-bar__back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--touch-min);
+  height: var(--touch-min);
+  margin-left: calc(-1 * var(--space-3));
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: transparent;
+  color: var(--ela-plum);
+  cursor: pointer;
+}
+
+.ela-app-bar__back:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+.ela-app-bar__title {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--fs-h4);
+  line-height: var(--lh-h4);
+  letter-spacing: var(--ls-h4);
+  font-weight: var(--fw-semibold);
+  color: var(--text-primary);
+}
+
+.ela-app-bar__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  color: currentColor;
+}

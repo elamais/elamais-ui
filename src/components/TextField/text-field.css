@@ -1,0 +1,72 @@
+.ela-textfield {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  font-family: var(--font-sans);
+}
+
+.ela-textfield__label {
+  font-size: var(--fs-caption);
+  line-height: var(--lh-caption);
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  font-weight: var(--fw-semibold);
+  color: var(--text-secondary);
+}
+
+.ela-textfield--error .ela-textfield__label {
+  color: var(--error);
+}
+
+.ela-textfield--disabled .ela-textfield__label {
+  color: var(--text-disabled);
+}
+
+.ela-textfield__input {
+  height: 52px;
+  padding: 0 var(--space-4);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  background: var(--surface-card);
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--text-primary);
+  outline: none;
+  transition:
+    border-color var(--dur-fast) var(--ease-standard),
+    box-shadow var(--dur-fast) var(--ease-standard);
+}
+
+.ela-textfield__input::placeholder {
+  color: var(--text-secondary);
+}
+
+.ela-textfield__input:focus-visible {
+  border-color: var(--ela-plum);
+  box-shadow: var(--focus-ring);
+}
+
+.ela-textfield--error .ela-textfield__input {
+  border-color: var(--error);
+  background: var(--error-surface);
+}
+
+.ela-textfield__input:disabled {
+  border-color: var(--border-default);
+  background: var(--surface-disabled);
+  color: var(--text-disabled);
+}
+
+.ela-textfield__hint {
+  font-size: var(--fs-small);
+  line-height: var(--lh-small);
+  color: var(--text-secondary);
+}
+
+.ela-textfield__error {
+  font-size: var(--fs-small);
+  line-height: var(--lh-small);
+  font-weight: var(--fw-medium);
+  color: var(--error);
+}

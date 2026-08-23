@@ -1,0 +1,61 @@
+/*
+ * ELA+ base styles.
+ *
+ * Fonts: this package does NOT bundle webfonts. Each app must add the official
+ * Google Fonts link to its index.html <head>:
+ *
+ *   <link rel="preconnect" href="https://fonts.googleapis.com">
+ *   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ *   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+ *
+ * Components only reference the families through the tokens
+ * (--font-display / --font-sans), which already declare system fallbacks.
+ */
+
+[class^="ela-"],
+[class*=" ela-"],
+[class^="ela-"] *,
+[class*=" ela-"] *,
+[class^="ela-"] *::before,
+[class*=" ela-"] *::after {
+  box-sizing: border-box;
+}
+
+@keyframes ela-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes ela-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.45;
+  }
+}
+
+@keyframes ela-toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.ela-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}

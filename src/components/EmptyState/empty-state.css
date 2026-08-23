@@ -1,0 +1,45 @@
+.ela-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-8) var(--space-6);
+  background: var(--surface-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  font-family: var(--font-sans);
+}
+
+.ela-empty-state__icon {
+  width: 56px;
+  height: 56px;
+  border: 1px solid var(--warning-border);
+  border-radius: var(--radius-full);
+  background: var(--surface-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ela-champagne-600);
+}
+
+.ela-empty-state__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 22px;
+  line-height: 28px;
+  font-weight: var(--fw-regular);
+  color: var(--ela-plum);
+}
+
+.ela-empty-state__description {
+  margin: 0;
+  max-width: 280px;
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--text-secondary);
+}
+
+.ela-empty-state__action {
+  margin-top: var(--space-1);
+}

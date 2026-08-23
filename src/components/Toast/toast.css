@@ -1,0 +1,68 @@
+/* Toasts appear above the tab bar for 4s, fading in with an 8px rise.
+   One line, no close button. */
+.ela-toast-viewport {
+  position: fixed;
+  left: var(--gutter-mobile);
+  right: var(--gutter-mobile);
+  bottom: calc(var(--space-16) + var(--space-4));
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  pointer-events: none;
+}
+
+@media (min-width: 1024px) {
+  .ela-toast-viewport {
+    left: auto;
+    right: var(--gutter-desktop);
+    bottom: var(--gutter-desktop);
+    width: 360px;
+  }
+}
+
+.ela-toast {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4) 18px;
+  border-radius: var(--radius-md);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: var(--fw-medium);
+  animation: ela-toast-in var(--dur-slow) var(--ease-standard);
+}
+
+.ela-toast__icon {
+  display: flex;
+  flex: none;
+}
+
+.ela-toast--brand {
+  background: var(--surface-brand);
+  color: var(--text-on-brand);
+  box-shadow: var(--shadow-e2);
+}
+
+.ela-toast--brand .ela-toast__icon {
+  color: var(--ela-champagne);
+}
+
+.ela-toast--success {
+  background: var(--success-surface);
+  border: 1px solid var(--success-border);
+  color: var(--success);
+}
+
+.ela-toast--error {
+  background: var(--error-surface);
+  border: 1px solid var(--error-border);
+  color: var(--error);
+}
+
+.ela-toast--info {
+  background: var(--info-surface);
+  border: 1px solid var(--info-border);
+  color: var(--info);
+}

@@ -1,0 +1,37 @@
+.ela-rating-stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+/* Filled stars in champagne-600 for contrast; empty outlines in border-strong. */
+.ela-rating-stars__star {
+  color: var(--border-strong);
+  display: block;
+}
+
+.ela-rating-stars__star--filled {
+  color: var(--ela-champagne-600);
+}
+
+.ela-rating-stars--input {
+  gap: 0;
+}
+
+.ela-rating-stars__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--touch-min);
+  min-height: var(--touch-min);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+}
+
+.ela-rating-stars__button:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}

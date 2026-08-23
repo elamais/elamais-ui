@@ -1,0 +1,70 @@
+/* Statement line: savings in success green, outflows in graphite, pending in
+   muted gray. No colored arrows, no money icons. */
+.ela-savings-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4) 18px;
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--surface-card);
+  font-family: var(--font-sans);
+}
+
+.ela-savings-row:last-child {
+  border-bottom: 0;
+}
+
+.ela-savings-row__info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.ela-savings-row__title {
+  font-size: var(--fs-body);
+  line-height: 22px;
+  font-weight: var(--fw-semibold);
+  color: var(--text-primary);
+}
+
+.ela-savings-row__detail {
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--text-secondary);
+}
+
+.ela-savings-row__value {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+  text-align: right;
+}
+
+.ela-savings-row__emphasis {
+  font-size: var(--fs-caption);
+  line-height: var(--lh-caption);
+  letter-spacing: 0.4px;
+  font-weight: var(--fw-medium);
+  color: var(--success);
+}
+
+.ela-savings-row__amount {
+  font-size: var(--fs-body);
+  line-height: 22px;
+  font-weight: var(--fw-semibold);
+  white-space: nowrap;
+}
+
+.ela-savings-row--saved .ela-savings-row__amount {
+  color: var(--success);
+}
+
+.ela-savings-row--pending .ela-savings-row__amount {
+  color: var(--text-disabled);
+}
+
+.ela-savings-row--debit .ela-savings-row__amount {
+  color: var(--text-primary);
+}
