@@ -56,3 +56,11 @@ inventar cores fora dos tokens).
 **Jamais faça commit usando o usuário da Anthropic e nem Claude — somente o
 usuário padrão da máquina (git config local), sem coautoria e sem menção a IA
 nas mensagens.**
+
+## Lei da análise (24/08)
+
+**Jamais tirar conclusão precipitada — analisar tudo de fato.** Qualquer
+afirmação sobre estado do sistema (configuração, banco, deploy, resposta de
+API, resultado de teste) exige evidência real verificada. Erro de chamada deve
+ser detectado e exibido explicitamente, nunca interpretado como resposta
+válida. Na dúvida, verificar de novo antes de afirmar.
