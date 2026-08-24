@@ -26,7 +26,8 @@
     "build": "vite build",
     "test": "vitest run",
     "test:watch": "vitest",
-    "lint": "tsc --noEmit"
+    "lint": "tsc --noEmit",
+    "prepare": "npm run build"
   },
   "peerDependencies": {
     "react": "^19.0.0",
@@ -47,5 +48,9 @@
     "vite": "^7.1.0",
     "vite-plugin-dts": "^4.5.4",
     "vitest": "^3.2.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elamais/elamais-ui.git"
   }
 }
