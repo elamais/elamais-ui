@@ -39,7 +39,7 @@
 }
 
 .ela-textfield__input::placeholder {
-  color: var(--text-secondary);
+  color: var(--text-placeholder);
 }
 
 .ela-textfield__input:focus-visible {

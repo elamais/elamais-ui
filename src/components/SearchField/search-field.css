@@ -36,6 +36,6 @@
 }
 
 .ela-searchfield__input::placeholder {
-  color: var(--text-secondary);
+  color: var(--text-placeholder);
   font-weight: var(--fw-regular);
 }

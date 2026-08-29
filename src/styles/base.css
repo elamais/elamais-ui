@@ -6,11 +6,19 @@
  *
  *   <link rel="preconnect" href="https://fonts.googleapis.com">
  *   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
- *   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+ *   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
  *
  * Components only reference the families through the tokens
  * (--font-display / --font-sans), which already declare system fallbacks.
  */
+
+/* Match the design canvas rendering: macOS subpixel smoothing makes the
+   same 400-weight Montserrat look noticeably heavier without this. */
+html,
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
 [class^="ela-"],
 [class*=" ela-"],

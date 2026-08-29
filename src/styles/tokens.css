@@ -30,6 +30,7 @@
   --text-on-brand-soft: rgba(250,248,245,.72);
   --text-gold:          var(--ela-champagne-800);
   --text-disabled:      #B8B0AA;
+  --text-placeholder:   #9A939E;  /* placeholders — mais claro que secondary */
   --text-link:          var(--ela-champagne-800);
 
   /* bordas e foco */
