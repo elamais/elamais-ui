@@ -67,7 +67,10 @@
   --fs-small:   13px; --lh-small:   20px;
   --fs-caption: 11px; --lh-caption: 16px; --ls-caption:  0.6px;
   --fs-button:  15px; --lh-button:  20px; --ls-button:   0.4px;
-  --fw-regular: 400;  --fw-medium: 500;   --fw-semibold: 600;
+  /* 30/08: the bold tier stepped down one notch (600 -> 500) — buttons,
+     labels, badges and list names render lighter, and the 600 face is no
+     longer loaded from Google Fonts. */
+  --fw-regular: 400;  --fw-medium: 500;   --fw-semibold: 500;
 
   /* espaçamento · escala 4px */
   --space-1: 4px;   --space-2: 8px;   --space-3: 12px;  --space-4: 16px;
