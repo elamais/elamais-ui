@@ -1,0 +1,21 @@
+.ela-select__control {
+  position: relative;
+  display: block;
+}
+
+.ela-select__input {
+  width: 100%;
+  appearance: none;
+  padding-right: var(--space-8);
+  cursor: pointer;
+}
+
+.ela-select__chevron {
+  position: absolute;
+  right: var(--space-4);
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--text-secondary);
+  font-size: 12px;
+}

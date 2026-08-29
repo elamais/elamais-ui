@@ -1,5 +1,7 @@
 import { useId, type MouseEvent, type ReactNode } from "react";
 import { createPortal } from "react-dom";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { Icon } from "../Icon";
 import { useDialog } from "../../hooks/useDialog/useDialog";
 import { cx } from "../../utils/cx";
 import "./drawer.css";
@@ -75,7 +77,7 @@ export function Drawer({
             aria-label="Fechar"
             onClick={onClose}
           >
-            ×
+            <Icon icon={faXmark} />
           </button>
         </div>
         {children && <div className="ela-drawer__body">{children}</div>}

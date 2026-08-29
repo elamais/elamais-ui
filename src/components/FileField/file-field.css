@@ -1,0 +1,50 @@
+.ela-filefield__box {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: var(--space-1);
+  padding: var(--space-5) var(--space-4);
+  border: 1px dashed var(--border-gold);
+  border-radius: var(--radius-sm);
+  background: var(--warning-surface);
+  cursor: pointer;
+  text-align: center;
+}
+
+.ela-filefield__box--busy {
+  cursor: progress;
+  opacity: 0.7;
+}
+
+.ela-filefield__box input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: inherit;
+}
+
+.ela-filefield__icon {
+  font-size: 20px;
+  color: var(--warning);
+}
+
+.ela-filefield__preview {
+  max-width: 100%;
+  max-height: 120px;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+  background: var(--surface-card);
+  margin-bottom: var(--space-1);
+}
+
+.ela-filefield__action {
+  font-size: var(--fs-small);
+  color: var(--ela-plum);
+  font-weight: var(--fw-medium);
+}
+
+.ela-filefield__hint {
+  font-size: var(--fs-caption);
+  color: var(--text-secondary);
+}

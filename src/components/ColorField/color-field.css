@@ -1,0 +1,31 @@
+.ela-colorfield__control {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.ela-colorfield__control input[type="color"] {
+  width: 40px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-xs);
+  background: transparent;
+  cursor: pointer;
+}
+
+.ela-colorfield__value {
+  font-size: var(--fs-small);
+  color: var(--text-primary);
+}
+
+.ela-colorfield__clear {
+  margin-left: auto;
+  border: none;
+  background: none;
+  font: inherit;
+  font-size: var(--fs-small);
+  font-weight: var(--fw-medium);
+  color: var(--ela-plum);
+  cursor: pointer;
+}
