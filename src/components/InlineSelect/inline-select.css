@@ -4,14 +4,26 @@
   align-items: center;
   gap: var(--space-2);
   padding: 0 var(--space-3);
-  height: 44px;
-  border-radius: var(--radius-sm);
+  height: 48px;
+  border-radius: var(--radius-full);
   font-family: var(--font-sans);
 }
 
 .ela-inlineselect__icon {
-  color: var(--warning);
-  font-size: 13px;
+  color: var(--ela-champagne-600);
+  font-size: 14px;
+}
+
+.ela-inlineselect__value {
+  font-size: var(--fs-body);
+  font-weight: var(--fw-medium);
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.ela-inlineselect__chevron {
+  color: var(--text-secondary);
+  font-size: 11px;
 }
 
 .ela-inlineselect__label {
@@ -25,26 +37,15 @@
 }
 
 .ela-inlineselect__input {
-  appearance: none;
-  border: none;
-  outline: none;
-  background: transparent;
-  font-family: var(--font-sans);
-  font-size: var(--fs-body);
-  color: var(--text-primary);
-  padding-right: var(--space-5);
-  cursor: pointer;
-}
-
-.ela-inlineselect__chevron {
   position: absolute;
-  right: var(--space-3);
-  pointer-events: none;
-  color: var(--text-secondary);
-  font-size: 11px;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  font-family: var(--font-sans);
 }
 
-.ela-inlineselect__input:focus-visible {
+.ela-inlineselect:focus-within {
   box-shadow: var(--focus-ring);
-  border-radius: var(--radius-xs);
 }

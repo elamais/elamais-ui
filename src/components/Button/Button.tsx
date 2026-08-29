@@ -7,6 +7,8 @@ export type ButtonVariant = "primary" | "secondary" | "ghost" | "destructive";
 export interface ButtonProps extends ComponentPropsWithRef<"button"> {
   /** Visual variant. Defaults to `primary`. */
   variant?: ButtonVariant;
+  /** Fully rounded corners (toolbar actions in the redesigned screens). */
+  pill?: boolean;
   /** Shows a spinner and blocks interaction while keeping the label visible. */
   loading?: boolean;
   /** Stretches the button to the container width. */
@@ -15,6 +17,7 @@ export interface ButtonProps extends ComponentPropsWithRef<"button"> {
 
 export function Button({
   variant = "primary",
+  pill = false,
   loading = false,
   fullWidth = false,
   disabled = false,
@@ -29,6 +32,7 @@ export function Button({
       className={cx(
         "ela-button",
         `ela-button--${variant}`,
+        pill && "ela-button--pill",
         fullWidth && "ela-button--full",
         loading && "ela-button--loading",
         className,

@@ -137,3 +137,7 @@
   border-color: rgba(250, 248, 245, 0.35);
   border-top-color: var(--ela-champagne);
 }
+
+.ela-button--pill {
+  border-radius: var(--radius-full);
+}

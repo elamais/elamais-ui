@@ -8,8 +8,8 @@
 }
 
 .ela-searchfield__icon {
-  color: var(--warning);
-  font-size: 14px;
+  color: var(--ela-champagne-600);
+  font-size: 15px;
   flex-shrink: 0;
 }
 
@@ -25,15 +25,17 @@
 
 .ela-searchfield__input {
   flex: 1;
-  height: 44px;
+  height: 48px;
   border: none;
   outline: none;
   background: transparent;
   font-family: var(--font-sans);
   font-size: var(--fs-body);
+  font-weight: var(--fw-regular);
   color: var(--text-primary);
 }
 
 .ela-searchfield__input::placeholder {
   color: var(--text-secondary);
+  font-weight: var(--fw-regular);
 }
