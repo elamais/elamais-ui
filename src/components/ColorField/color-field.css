@@ -25,7 +25,7 @@
   background: none;
   font: inherit;
   font-size: var(--fs-small);
-  font-weight: var(--fw-medium);
+  font-weight: var(--fw-semibold);
   color: var(--ela-plum);
   cursor: pointer;
 }

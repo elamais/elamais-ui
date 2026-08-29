@@ -41,7 +41,7 @@
 .ela-filefield__action {
   font-size: var(--fs-small);
   color: var(--ela-plum);
-  font-weight: var(--fw-medium);
+  font-weight: var(--fw-semibold);
 }
 
 .ela-filefield__hint {

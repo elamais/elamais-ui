@@ -46,8 +46,17 @@
   --info:    #3F4F70; --info-surface:    #ECEEF4; --info-border:    #C9CFDD;
 
   /* tipografia · mobile 390px */
+  /* Typography rule (brand book): Playfair ONLY at weight 400 for brand
+     moments — logo, display/h1–h2 and big highlight numbers. Montserrat for
+     everything else: 400 body/descriptions/table cells, 500 uppercase
+     captions/tab labels/inactive menu items, 600 EXCLUSIVELY for buttons,
+     form labels, h3–h4, badges, list names and highlighted numbers.
+     Playfair never in body, label, data or button. --font-mono is the
+     system stack (nothing loaded) for technical content: slugs, codes,
+     image placeholders. */
   --font-display: "Playfair Display", Georgia, serif;
   --font-sans:    "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  --font-mono:    ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   --fs-display: 40px; --lh-display: 44px; --ls-display: -0.5px;
   --fs-h1:      32px; --lh-h1:      38px; --ls-h1:      -0.4px;
   --fs-h2:      26px; --lh-h2:      32px; --ls-h2:      -0.2px;
