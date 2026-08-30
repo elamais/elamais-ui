@@ -1,0 +1,79 @@
+.ela-numberfield {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.ela-numberfield__label {
+  font-size: var(--fs-caption);
+  line-height: var(--lh-caption);
+  letter-spacing: var(--ls-caption);
+  text-transform: uppercase;
+  font-weight: var(--fw-semibold);
+  color: var(--text-secondary);
+}
+
+.ela-numberfield__control {
+  display: inline-flex;
+  align-items: stretch;
+  width: fit-content;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--surface-card);
+}
+
+.ela-numberfield__control:focus-within {
+  box-shadow: var(--focus-ring);
+}
+
+.ela-numberfield__step {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  border: none;
+  background: none;
+  color: var(--ela-plum);
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.ela-numberfield__step:hover:not(:disabled) {
+  background: var(--ela-plum-050);
+}
+
+.ela-numberfield__step:disabled {
+  color: var(--text-disabled);
+  cursor: default;
+}
+
+.ela-numberfield__input {
+  width: 64px;
+  height: 40px;
+  border: none;
+  border-inline: 1px solid var(--border-subtle);
+  text-align: center;
+  font-family: var(--font-sans);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-semibold);
+  color: var(--text-primary);
+  background: transparent;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.ela-numberfield__input::-webkit-outer-spin-button,
+.ela-numberfield__input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.ela-numberfield__input:focus {
+  outline: none;
+}
+
+.ela-numberfield__hint {
+  font-size: var(--fs-caption);
+  line-height: var(--lh-caption);
+  color: var(--text-secondary);
+}
