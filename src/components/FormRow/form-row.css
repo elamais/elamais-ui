@@ -1,0 +1,24 @@
+.ela-formrow {
+  container-type: inline-size;
+  display: grid;
+  gap: var(--space-4);
+  align-items: start;
+}
+
+.ela-formrow--cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.ela-formrow--cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* Keyed to the row's own width, not the viewport: a Drawer is sized as a
+   % of the screen, so it can be narrow even on a wide window — a viewport
+   media query would miss that and let the row overflow. */
+@container (max-width: 420px) {
+  .ela-formrow--cols-2,
+  .ela-formrow--cols-3 {
+    grid-template-columns: 1fr;
+  }
+}
