@@ -1,24 +1,31 @@
+/* Flex-wrap, not a grid with tracks: the row must give back columns as its
+   own width shrinks, and neither query can drive that here. A viewport media
+   query is blind to the container (a Drawer is a % of the screen, so it is
+   narrow while the window stays wide), and `container-type` on the row makes
+   it a container for its DESCENDANTS — a rule matching .ela-formrow itself
+   never resolves against it, so the collapse would never fire. Wrapping is
+   keyed to the row's real width by construction, and the item count caps the
+   columns: `auto-fit` tracks would happily lay a 2-field row out in 3. */
 .ela-formrow {
-  container-type: inline-size;
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
   gap: var(--space-4);
   align-items: start;
 }
 
+/* Each item takes its share and grows into the leftovers; `min-width: 0`
+   lets it shrink below its content instead of pushing the row into
+   horizontal scroll. Basis = the width below which the row is too cramped
+   to keep the columns side by side. */
+.ela-formrow > * {
+  flex: 1 1 var(--ela-formrow-basis);
+  min-width: 0;
+}
+
 .ela-formrow--cols-2 {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  --ela-formrow-basis: 220px;
 }
 
 .ela-formrow--cols-3 {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-/* Keyed to the row's own width, not the viewport: a Drawer is sized as a
-   % of the screen, so it can be narrow even on a wide window — a viewport
-   media query would miss that and let the row overflow. */
-@container (max-width: 420px) {
-  .ela-formrow--cols-2,
-  .ela-formrow--cols-3 {
-    grid-template-columns: 1fr;
-  }
+  --ela-formrow-basis: 170px;
 }

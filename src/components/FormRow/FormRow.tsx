@@ -11,14 +11,13 @@ export interface FormRowProps extends ComponentPropsWithRef<"div"> {
 
 /**
  * Side-by-side field layout for Drawer/Modal forms (e.g. Ordem + Cor, two
- * upload slots) and for the matching read-only dt/dd view grids. Columns
- * use `minmax(0, 1fr)` so fields shrink instead of forcing the row past its
- * container — a plain `1fr` track defaults to `minmax(auto, 1fr)`, which
- * refuses to shrink below a field's min-content and blows the row out into
- * horizontal scroll. Below 420px of the row's own width it collapses to a
- * single column, via a container query rather than a viewport media query,
- * since a Drawer is a % of the screen and can be narrow while the window
- * itself stays wide.
+ * upload slots) and for the matching read-only dt/dd view grids. Fields are
+ * wrapping flex items sized from a per-column basis, so the row gives back
+ * columns as soon as its own width no longer fits them and each field
+ * shrinks instead of pushing the row into horizontal scroll. Neither query
+ * would do it: a viewport media query is blind to the container (a Drawer is
+ * a % of the screen, narrow while the window is wide), and `container-type`
+ * on the row makes it a container for its descendants, never for itself.
  */
 export function FormRow({ columns = 2, as = "div", className, children, ...rest }: FormRowProps) {
   const rowClassName = cx("ela-formrow", `ela-formrow--cols-${columns}`, className);

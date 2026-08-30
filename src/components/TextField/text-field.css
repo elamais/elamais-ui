@@ -1,8 +1,13 @@
+/* min-width: 0 so the field is allowed to shrink inside a flex/grid row.
+   Without it the automatic minimum size is the input's intrinsic width
+   (~205px), which forces the whole row past a narrow container — a Drawer
+   is a % of the screen, so it is narrow even on a wide window. */
 .ela-textfield {
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
   font-family: var(--font-sans);
+  min-width: 0;
 }
 
 .ela-textfield__label {
@@ -23,6 +28,8 @@
 }
 
 .ela-textfield__input {
+  width: 100%;
+  min-width: 0;
   height: 52px;
   padding: 0 var(--space-4);
   border: 1px solid var(--border-default);

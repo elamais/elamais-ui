@@ -38,9 +38,11 @@
   }
 }
 
+/* 100% of the overlay (fixed, inset 0) rather than 100vw: vw includes the
+   classic scrollbar, which would push the panel past the viewport. */
 @media (max-width: 720px) {
   .ela-drawer {
-    width: 100vw !important;
+    width: 100% !important;
   }
 }
 
@@ -77,9 +79,14 @@
   background: var(--border-subtle);
 }
 
+/* overflow-x: hidden is the panel's own guard: the body scrolls vertically
+   only, so no screen can turn the drawer into a horizontally scrolling
+   surface. Content still has to be laid out to fit — see FormRow. */
 .ela-drawer__body {
   flex: 1;
+  min-width: 0;
   overflow-y: auto;
+  overflow-x: hidden;
   padding: 0 var(--space-8) var(--space-6);
   font-size: 14px;
   line-height: 22px;
