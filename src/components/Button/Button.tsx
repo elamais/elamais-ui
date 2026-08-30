@@ -4,9 +4,13 @@ import "./button.css";
 
 export type ButtonVariant = "primary" | "secondary" | "ghost" | "destructive";
 
+export type ButtonSize = "md" | "sm";
+
 export interface ButtonProps extends ComponentPropsWithRef<"button"> {
   /** Visual variant. Defaults to `primary`. */
   variant?: ButtonVariant;
+  /** `sm` is the compact size for inline actions inside cards and rows. */
+  size?: ButtonSize;
   /** Fully rounded corners (toolbar actions in the redesigned screens). */
   pill?: boolean;
   /** Shows a spinner and blocks interaction while keeping the label visible. */
@@ -17,6 +21,7 @@ export interface ButtonProps extends ComponentPropsWithRef<"button"> {
 
 export function Button({
   variant = "primary",
+  size = "md",
   pill = false,
   loading = false,
   fullWidth = false,
@@ -32,6 +37,7 @@ export function Button({
       className={cx(
         "ela-button",
         `ela-button--${variant}`,
+        size === "sm" && "ela-button--sm",
         pill && "ela-button--pill",
         fullWidth && "ela-button--full",
         loading && "ela-button--loading",

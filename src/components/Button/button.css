@@ -141,3 +141,22 @@
 .ela-button--pill {
   border-radius: var(--radius-full);
 }
+
+/* Compact size — inline actions inside cards and table rows */
+.ela-button--sm {
+  height: 32px;
+  min-width: 0;
+  gap: 6px;
+  padding: 0 var(--space-3);
+  font-size: var(--fs-caption);
+  letter-spacing: 0.02em;
+}
+
+.ela-button--sm.ela-button--ghost {
+  padding: 0 var(--space-2);
+}
+
+.ela-button--sm .ela-button__spinner {
+  width: 12px;
+  height: 12px;
+}
