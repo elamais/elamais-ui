@@ -1,0 +1,4 @@
+.ela-cardgrid {
+  display: grid;
+  gap: var(--space-4);
+}

@@ -12,6 +12,7 @@ export * from "./components/BenefitCard";
 export * from "./components/BottomSheet";
 export * from "./components/Button";
 export * from "./components/Card";
+export * from "./components/CardGrid";
 export * from "./components/Chip";
 export * from "./components/ColorField";
 export * from "./components/Drawer";
@@ -32,6 +33,7 @@ export * from "./components/Select";
 export * from "./components/Skeleton";
 export * from "./components/TabBar";
 export * from "./components/Toolbar";
+export * from "./components/ViewToggle";
 export * from "./components/TextArea";
 export * from "./components/TextField";
 export * from "./components/Toast";
@@ -40,6 +42,7 @@ export * from "./components/WalletBalance";
 // Hooks
 export * from "./hooks/useCountdown";
 export * from "./hooks/useDisclosure";
+export * from "./hooks/useViewMode";
 
 // Formatting helpers (pt-BR)
 export {
