@@ -12,7 +12,7 @@ export function CardGrid({ minWidth = 280, className, style, children, ...rest }
   return (
     <div
       className={cx("ela-cardgrid", className)}
-      style={{ ...style, gridTemplateColumns: `repeat(auto-fill, minmax(${minWidth}px, 1fr))` }}
+      style={{ ...style, gridTemplateColumns: `repeat(auto-fill, minmax(min(${minWidth}px, 100%), 1fr))` }}
       {...rest}
     >
       {children}

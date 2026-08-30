@@ -17,3 +17,25 @@
   background: var(--border-subtle);
   margin: var(--space-1) 0;
 }
+
+/* Narrow screens: the pill relaxes into a rounded card, the search takes
+   the full first row and separators disappear — content wraps cleanly. */
+.ela-toolbar {
+  flex-wrap: wrap;
+}
+
+@media (max-width: 760px) {
+  .ela-toolbar {
+    border-radius: var(--radius-lg);
+    padding: var(--space-3);
+    row-gap: var(--space-2);
+  }
+
+  .ela-toolbar .ela-searchfield {
+    flex: 1 1 100%;
+  }
+
+  .ela-toolbar__separator {
+    display: none;
+  }
+}
