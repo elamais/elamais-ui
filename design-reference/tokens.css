@@ -1,13 +1,17 @@
+/* Cores da marca conforme o Manual da Marca ELA+ (GNA Publicidade):
+   ameixa R66 G16 B43 e champagne R218 G166 B122. A escala em volta é
+   derivada dessas duas, e o dourado de texto foi escolhido para passar em
+   AA sobre card, página e superfície gold. */
 :root {
   /* brand */
-  --ela-plum:          #3D1B35;
-  --ela-plum-600:      #4B2242;  /* hover */
-  --ela-plum-900:      #2A1224;  /* active */
-  --ela-plum-050:      #F3EBF0;  /* superfície */
-  --ela-champagne:     #D8B99A;
-  --ela-champagne-600: #B08A4F;  /* ícone sobre claro */
-  --ela-champagne-800: #7A5A2E;  /* texto sobre claro (AA) */
-  --ela-champagne-050: #F7EFE4;
+  --ela-plum:          #42102B;
+  --ela-plum-600:      #531436;  /* hover */
+  --ela-plum-900:      #2C0B1C;  /* active */
+  --ela-plum-050:      #F3EBEF;  /* superfície */
+  --ela-champagne:     #DAA67A;
+  --ela-champagne-600: #C48855;  /* ícone sobre claro */
+  --ela-champagne-800: #9B5E2A;  /* texto sobre claro (AA) */
+  --ela-champagne-050: #F8EDE3;
   --ela-lilac:         #A88AA7;
   --ela-lilac-700:     #6E4F6C;
   --ela-lilac-050:     #EFE7EE;

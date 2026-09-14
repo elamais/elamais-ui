@@ -6,16 +6,16 @@ export const tokens = {
   "color": {
     "brand": {
       "plum": {
-        "base": "#3D1B35",
-        "hover": "#4B2242",
-        "active": "#2A1224",
-        "050": "#F3EBF0"
+        "base": "#42102B",
+        "hover": "#531436",
+        "active": "#2C0B1C",
+        "050": "#F3EBEF"
       },
       "champagne": {
-        "base": "#D8B99A",
-        "icon": "#B08A4F",
-        "text": "#7A5A2E",
-        "050": "#F7EFE4"
+        "base": "#DAA67A",
+        "icon": "#C48855",
+        "text": "#9B5E2A",
+        "050": "#F8EDE3"
       },
       "lilac": {
         "base": "#A88AA7",
@@ -29,9 +29,9 @@ export const tokens = {
       "page": "#FAF8F5",
       "card": "#FFFFFF",
       "raised": "#F3EFEA",
-      "brand": "#3D1B35",
+      "brand": "#42102B",
       "soft": "#EFE7EE",
-      "gold": "#F7EFE4",
+      "gold": "#F8EDE3",
       "disabled": "#F1EDE9"
     },
     "text": {
@@ -39,15 +39,15 @@ export const tokens = {
       "secondary": "#5C5560",
       "onBrand": "#FAF8F5",
       "onBrandSoft": "rgba(250,248,245,0.72)",
-      "gold": "#7A5A2E",
+      "gold": "#9B5E2A",
       "disabled": "#B8B0AA",
-      "link": "#7A5A2E"
+      "link": "#9B5E2A"
     },
     "border": {
       "subtle": "#F0EAE3",
       "default": "#E6DFD8",
       "strong": "#D6CBC0",
-      "gold": "#D8B99A"
+      "gold": "#DAA67A"
     },
     "semantic": {
       "success": {
