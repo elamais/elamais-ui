@@ -10,7 +10,7 @@ export interface PlanFeature {
 export interface PlanCardProps {
   /** Plan name, e.g. "Master". */
   name: string;
-  /** Price line, e.g. "R$ 39". */
+  /** Price line, e.g. "R$ 39" or "R$ 34,90". Never split across lines. */
   price: string;
   /** Price suffix, e.g. "/mês". */
   period?: string;
@@ -54,7 +54,7 @@ export function PlanCard({
       <div className="ela-plan-card__head">
         <span className="ela-plan-card__name">{name}</span>
         <span className="ela-plan-card__price">
-          {price}
+          <span className="ela-plan-card__amount">{price}</span>
           {period && <span className="ela-plan-card__period">{period}</span>}
         </span>
         {tagline && <span className="ela-plan-card__tagline">{tagline}</span>}

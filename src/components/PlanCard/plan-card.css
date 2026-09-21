@@ -31,10 +31,13 @@
   font-weight: var(--fw-semibold);
 }
 
+/* The head is the container the price measures itself against (a container
+   sizes its descendants, never itself). */
 .ela-plan-card__head {
   display: flex;
   flex-direction: column;
   gap: 6px;
+  container-type: inline-size;
 }
 
 .ela-plan-card__name {
@@ -50,12 +53,26 @@
   color: var(--ela-champagne);
 }
 
+/* A price with cents ("R$ 89,90/mês") is wider than a card in a four-up row
+   at the desktop scale. Rather than let "R$" fall onto its own line, the
+   price follows the card's width: full h1 whenever it fits, smaller only when
+   it must. The first font-size is the fallback where container units are
+   unsupported. */
 .ela-plan-card__price {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: var(--space-1);
   font-family: var(--font-display);
   font-size: var(--fs-h1);
-  line-height: var(--lh-h1);
+  font-size: min(var(--fs-h1), 19cqi);
+  line-height: 1.125;
   letter-spacing: var(--ls-h1);
   color: var(--ela-plum);
+}
+
+.ela-plan-card__amount {
+  white-space: nowrap;
 }
 
 .ela-plan-card--highlighted .ela-plan-card__price {
@@ -119,7 +136,10 @@
   color: var(--text-on-brand-soft);
 }
 
+/* In a row of cards stretched to equal height, the buttons line up at the
+   bottom instead of wherever each card's list happens to end. */
 .ela-plan-card__cta {
+  margin-top: auto;
   height: 48px;
   border: 1px solid var(--ela-plum);
   border-radius: var(--radius-md);
