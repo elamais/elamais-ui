@@ -1,4 +1,5 @@
 import { useEffect, useRef, type RefObject } from "react";
+import { isTopLayer, pushLayer } from "./layerStack";
 
 export interface UseDialogOptions {
   open: boolean;
@@ -16,8 +17,10 @@ const FOCUSABLE_SELECTOR = [
 ].join(", ");
 
 /**
- * Shared behavior for Modal and BottomSheet: Escape to close, initial focus,
- * focus restore on close and a simple Tab focus trap.
+ * Shared behavior for Modal, Drawer and BottomSheet: Escape to close, initial
+ * focus, focus restore on close and a simple Tab focus trap. Overlays stack:
+ * only the top-most open one handles keys, so Escape closes one layer at a
+ * time (a Modal over a Drawer closes first, the Drawer on the next Escape).
  */
 export function useDialog({
   open,
@@ -27,6 +30,8 @@ export function useDialog({
   const dialogRef = useRef<HTMLDivElement>(null);
   const onCloseRef = useRef(onClose);
   onCloseRef.current = onClose;
+  const closeOnEscRef = useRef(closeOnEsc);
+  closeOnEscRef.current = closeOnEsc;
 
   useEffect(() => {
     if (!open) return;
@@ -37,10 +42,18 @@ export function useDialog({
         : null;
     dialogRef.current?.focus();
 
+    const layer = Symbol("ela-dialog-layer");
+    const releaseLayer = pushLayer(layer);
+
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape" && closeOnEsc) {
-        event.stopPropagation();
-        onCloseRef.current();
+      if (!isTopLayer(layer)) return;
+      if (event.key === "Escape") {
+        // The top layer owns Escape even when it cannot be dismissed by it,
+        // so the key never falls through to the overlay underneath.
+        if (closeOnEscRef.current) {
+          event.stopPropagation();
+          onCloseRef.current();
+        }
         return;
       }
       if (event.key === "Tab" && dialogRef.current) {
@@ -68,9 +81,10 @@ export function useDialog({
     document.addEventListener("keydown", handleKeyDown, true);
     return () => {
       document.removeEventListener("keydown", handleKeyDown, true);
+      releaseLayer();
       previouslyFocused?.focus();
     };
-  }, [open, closeOnEsc]);
+  }, [open]);
 
   return dialogRef;
 }
