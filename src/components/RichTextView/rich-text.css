@@ -1,0 +1,80 @@
+/* Shared typography for rich text bodies: RichTextView and the editable
+   area of RichTextEditor render the same allowlist with the same look. */
+.ela-richtext {
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--text-primary);
+  overflow-wrap: anywhere;
+  min-width: 0;
+}
+
+.ela-richtext > :first-child {
+  margin-top: 0;
+}
+
+.ela-richtext > :last-child {
+  margin-bottom: 0;
+}
+
+.ela-richtext p {
+  margin: 0 0 var(--space-3);
+}
+
+.ela-richtext h2 {
+  margin: var(--space-6) 0 var(--space-3);
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  line-height: var(--lh-h3);
+  font-weight: var(--fw-semibold);
+  color: var(--ela-plum);
+}
+
+.ela-richtext h3 {
+  margin: var(--space-5) 0 var(--space-2);
+  font-family: var(--font-sans);
+  font-size: var(--fs-h4);
+  line-height: var(--lh-h4);
+  letter-spacing: var(--ls-h4);
+  font-weight: var(--fw-semibold);
+  color: var(--text-primary);
+}
+
+.ela-richtext ul,
+.ela-richtext ol {
+  margin: 0 0 var(--space-3);
+  padding-left: var(--space-6);
+}
+
+.ela-richtext li {
+  margin-bottom: var(--space-1);
+}
+
+.ela-richtext li::marker {
+  color: var(--text-gold);
+}
+
+.ela-richtext blockquote {
+  margin: 0 0 var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-left: 3px solid var(--ela-champagne);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  background: var(--surface-gold);
+  color: var(--text-secondary);
+}
+
+.ela-richtext a {
+  color: var(--text-link);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.ela-richtext a:focus-visible {
+  outline: none;
+  border-radius: var(--radius-xs);
+  box-shadow: var(--focus-ring);
+}
+
+.ela-richtext strong {
+  font-weight: var(--fw-semibold);
+}

@@ -80,6 +80,8 @@ declare system fallbacks.
 | `Skeleton` | Pulsing placeholder (`text` / `rect` / `circle`). Never a full-screen spinner. |
 | `AppBar` | `brand` (plum + ELA+ wordmark) or `page` (off-white, back button + title). |
 | `TabBar` | 5-item bottom navigation; active item in plum with a 4px champagne dot. |
+| `RichTextEditor` | Controlled rich text field (`value` HTML + `onChange(html)`, `label`/`hint`/`error`/`disabled`/`id`/`minHeight`) for backoffice contents. contentEditable with a WAI-ARIA toolbar (bold, italic, underline, H2/H3, paragraph, lists, quote, link with http(s)/mailto validation, clear, undo/redo); output sanitized on every change and on paste. No extra runtime dependency. |
+| `RichTextView` | Read-only render of a rich text body (`html`), sanitized, same typography as the editor. |
 
 ### Hooks
 
@@ -93,6 +95,15 @@ declare system fallbacks.
 ### Formatting helpers (pt-BR)
 
 `formatBRL`, `formatXp`, `formatRating`, `formatMmSs`, `formatDayMonth`.
+
+### Rich text safety
+
+`sanitizeHtml(html: string): string` keeps only `p`, `br`, `strong`/`b`,
+`em`/`i`, `u`, `h2`, `h3`, `ul`, `ol`, `li`, `blockquote` and `a[href]`
+(http, https or mailto only, forced `target="_blank"` +
+`rel="noopener noreferrer"`); every other tag is unwrapped or dropped with
+its content (scripts, styles, media, forms) and every other attribute is
+removed. Also exported: `isSafeLinkUrl(url)` and `plainTextToHtml(text)`.
 
 ## Tokens
 

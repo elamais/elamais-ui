@@ -28,6 +28,8 @@ export * from "./components/MemberCard";
 export * from "./components/Modal";
 export * from "./components/PlanCard";
 export * from "./components/RatingStars";
+export * from "./components/RichTextEditor";
+export * from "./components/RichTextView";
 export * from "./components/SavingsRow";
 export * from "./components/SearchField";
 export * from "./components/Select";
@@ -47,6 +49,9 @@ export * from "./components/WalletBalance";
 export * from "./hooks/useCountdown";
 export * from "./hooks/useDisclosure";
 export * from "./hooks/useViewMode";
+
+// Rich text safety (allowlist sanitizer for stored HTML bodies)
+export { sanitizeHtml, isSafeLinkUrl, plainTextToHtml } from "./utils/sanitizeHtml";
 
 // Formatting helpers (pt-BR)
 export {

@@ -1,0 +1,139 @@
+/* The frame mirrors .ela-textfield__input (border, radius, focus ring,
+   error and disabled surfaces). Everything reflows by the field's own width
+   — the toolbar wraps, the link bar stacks — so it behaves inside a Drawer
+   without viewport media queries. */
+.ela-rte__frame {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  background: var(--surface-card);
+  overflow: hidden;
+  transition:
+    border-color var(--dur-fast) var(--ease-standard),
+    box-shadow var(--dur-fast) var(--ease-standard);
+}
+
+.ela-rte__frame:focus-within {
+  border-color: var(--ela-plum);
+  box-shadow: var(--focus-ring);
+}
+
+.ela-textfield--error .ela-rte__frame {
+  border-color: var(--error);
+}
+
+.ela-textfield--error .ela-rte__content {
+  background: var(--error-surface);
+}
+
+.ela-textfield--disabled .ela-rte__frame {
+  border-color: var(--border-default);
+  background: var(--surface-disabled);
+}
+
+.ela-textfield--disabled .ela-rte__content {
+  color: var(--text-disabled);
+  cursor: not-allowed;
+}
+
+.ela-rte__toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-2);
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--ela-offwhite);
+}
+
+.ela-rte__tool {
+  gap: 1px;
+}
+
+.ela-rte__tool:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+.ela-rte__tool-suffix {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: var(--fw-semibold);
+  line-height: 1;
+  align-self: flex-end;
+  margin-bottom: 9px;
+}
+
+.ela-rte__separator {
+  width: 1px;
+  height: 20px;
+  margin: 0 var(--space-1);
+  background: var(--border-default);
+}
+
+.ela-rte__linkbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--surface-gold);
+}
+
+.ela-rte__linkfield {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  flex: 1 1 220px;
+  min-width: 0;
+}
+
+.ela-rte__linkinput {
+  width: 100%;
+  min-width: 0;
+  height: 40px;
+  padding: 0 var(--space-3);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  background: var(--surface-card);
+  font-family: var(--font-sans);
+  font-size: var(--fs-small);
+  color: var(--text-primary);
+  outline: none;
+}
+
+.ela-rte__linkinput::placeholder {
+  color: var(--text-placeholder);
+}
+
+.ela-rte__linkinput:focus-visible {
+  border-color: var(--ela-plum);
+  box-shadow: var(--focus-ring);
+}
+
+.ela-rte__linkinput[aria-invalid="true"] {
+  border-color: var(--error);
+}
+
+.ela-rte__linkactions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.ela-rte__content {
+  padding: var(--space-4);
+  outline: none;
+  cursor: text;
+}
+
+.ela-rte__content--empty::before {
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  color: var(--text-placeholder);
+  pointer-events: none;
+}
