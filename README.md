@@ -62,6 +62,8 @@ declare system fallbacks.
 | --- | --- |
 | `Button` | `primary` / `secondary` / `ghost` / `destructive`; `loading`, `disabled`, `fullWidth`. 52px mobile / 48px desktop. |
 | `TextField` | Labelled input with hint and error state (`aria-invalid` + linked message). |
+| `CheckboxField` | Checkbox row: `label` (node, e.g. with a Badge), `description`, `error`, `disabled`, `id`, controlled `checked`/`onChange`, `indeterminate` (dash + `aria-checked="mixed"`). Whole row is a 44px target. |
+| `CheckboxGroup` | Titled fieldset (`title`, `description`, `error`, `disabled`) of CheckboxFields with an optional tri-state "Marcar/Desmarcar todas" toggle (`selectAll={{ checked, total, onChange(next) }}`). |
 | `Chip` | Selectable category chip (`aria-pressed`, 44px touch target). |
 | `Badge` | Status badge: `brand`, `gold`, `lilac`, `success`, `warning`, `error`, `info`, `neutral`. |
 | `Card` | Base white surface (radius 16, elevation e1; `elevated`, `goldBorder`, `padding`). |

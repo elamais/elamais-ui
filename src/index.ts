@@ -13,6 +13,8 @@ export * from "./components/BottomSheet";
 export * from "./components/Button";
 export * from "./components/Card";
 export * from "./components/CardGrid";
+export * from "./components/CheckboxField";
+export * from "./components/CheckboxGroup";
 export * from "./components/Chip";
 export * from "./components/ColorField";
 export * from "./components/Drawer";

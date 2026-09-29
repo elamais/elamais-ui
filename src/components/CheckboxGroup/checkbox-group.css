@@ -1,0 +1,60 @@
+.ela-checkbox-group {
+  display: grid;
+  gap: var(--space-1);
+  min-width: 0;
+  margin: 0;
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  font-family: var(--font-sans);
+}
+
+.ela-checkbox-group--error {
+  border-color: var(--error-border);
+}
+
+.ela-checkbox-group__title {
+  padding: 0 var(--space-1);
+  font-size: var(--fs-small);
+  line-height: var(--lh-small);
+  font-weight: var(--fw-semibold);
+  color: var(--text-primary);
+}
+
+.ela-checkbox-group__description {
+  margin: 0;
+  font-size: var(--fs-small);
+  line-height: var(--lh-small);
+  color: var(--text-secondary);
+}
+
+.ela-checkbox-group__toggle {
+  padding-bottom: var(--space-1);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.ela-checkbox-group__toggle .ela-checkbox__label {
+  font-weight: var(--fw-semibold);
+  color: var(--text-secondary);
+}
+
+.ela-checkbox-group__options {
+  display: grid;
+}
+
+/* Options disabled through the native fieldset stay readable. */
+.ela-checkbox-group:disabled .ela-checkbox__row {
+  cursor: default;
+}
+
+.ela-checkbox-group:disabled .ela-checkbox__label {
+  color: var(--text-secondary);
+}
+
+.ela-checkbox-group__error {
+  margin: 0;
+  font-size: var(--fs-small);
+  line-height: var(--lh-small);
+  font-weight: var(--fw-medium);
+  color: var(--error);
+}

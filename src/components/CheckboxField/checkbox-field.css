@@ -1,0 +1,137 @@
+.ela-checkbox {
+  display: grid;
+  gap: var(--space-1);
+  font-family: var(--font-sans);
+  min-width: 0;
+}
+
+/* The whole row is the hit target (>= 44px tall with the padding). */
+.ela-checkbox__row {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  min-height: 44px;
+  padding: var(--space-2) 0;
+  cursor: pointer;
+}
+
+.ela-checkbox--disabled .ela-checkbox__row {
+  cursor: default;
+}
+
+.ela-checkbox__input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+}
+
+.ela-checkbox__box {
+  position: relative;
+  flex: none;
+  width: 20px;
+  height: 20px;
+  margin-top: 1px;
+  border: 1.5px solid var(--border-strong);
+  border-radius: var(--radius-xs);
+  background: var(--surface-card);
+  transition:
+    background var(--dur-fast) var(--ease-standard),
+    border-color var(--dur-fast) var(--ease-standard);
+}
+
+/* Check mark (checked) and dash (indeterminate), drawn with borders. */
+.ela-checkbox__box::after {
+  content: "";
+  position: absolute;
+  display: none;
+  border: solid var(--text-on-brand);
+}
+
+.ela-checkbox__input:checked + .ela-checkbox__box,
+.ela-checkbox__input:indeterminate + .ela-checkbox__box {
+  border-color: var(--ela-plum);
+  background: var(--ela-plum);
+}
+
+.ela-checkbox__input:checked + .ela-checkbox__box::after {
+  display: block;
+  left: 5.5px;
+  top: 1.5px;
+  width: 5px;
+  height: 10px;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.ela-checkbox__input:indeterminate + .ela-checkbox__box::after {
+  display: block;
+  left: 3.5px;
+  top: 7.5px;
+  width: 10px;
+  height: 0;
+  border-width: 2px 0 0 0;
+  transform: none;
+}
+
+.ela-checkbox__row:hover .ela-checkbox__input:not(:disabled) + .ela-checkbox__box {
+  border-color: var(--ela-plum);
+}
+
+.ela-checkbox__input:focus-visible + .ela-checkbox__box {
+  box-shadow: var(--focus-ring);
+}
+
+.ela-checkbox--error .ela-checkbox__box {
+  border-color: var(--error);
+  background: var(--error-surface);
+}
+
+.ela-checkbox__input:disabled + .ela-checkbox__box {
+  border-color: var(--border-default);
+  background: var(--surface-disabled);
+}
+
+.ela-checkbox__input:disabled:checked + .ela-checkbox__box,
+.ela-checkbox__input:disabled:indeterminate + .ela-checkbox__box {
+  border-color: var(--text-disabled);
+  background: var(--text-disabled);
+}
+
+.ela-checkbox__text {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.ela-checkbox__label {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--fs-small);
+  line-height: var(--lh-small);
+  font-weight: var(--fw-medium);
+  color: var(--text-primary);
+}
+
+.ela-checkbox__description {
+  font-size: var(--fs-caption);
+  line-height: var(--lh-caption);
+  color: var(--text-secondary);
+}
+
+/* Disabled rows stay readable (read-only views list the chosen options). */
+.ela-checkbox--disabled .ela-checkbox__label {
+  color: var(--text-secondary);
+}
+
+.ela-checkbox__error {
+  padding-left: calc(20px + var(--space-3));
+  font-size: var(--fs-small);
+  line-height: var(--lh-small);
+  font-weight: var(--fw-medium);
+  color: var(--error);
+}
