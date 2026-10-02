@@ -1,0 +1,71 @@
+/* The institutional site's top bar (elamais-site SiteHeader). */
+.ela-site-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--gutter-mobile);
+  padding-top: calc(var(--space-4) + env(safe-area-inset-top, 0px));
+  background: var(--surface-brand);
+  color: var(--text-on-brand);
+  font-family: var(--font-sans);
+}
+
+.ela-site-bar__logo {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--touch-min);
+  text-decoration: none;
+}
+
+.ela-site-bar__logo-img {
+  display: block;
+  height: 30px;
+}
+
+.ela-site-bar__nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.ela-site-bar__nav-link {
+  color: var(--text-on-brand-soft);
+  text-decoration: none;
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-small);
+}
+
+.ela-site-bar__nav-link:hover {
+  color: var(--text-on-brand);
+}
+
+.ela-site-bar__cta {
+  height: 40px;
+  padding: 0 18px;
+  background: var(--ela-champagne);
+  color: var(--ela-plum-900);
+  text-decoration: none;
+}
+
+.ela-site-bar__cta:hover {
+  background: var(--ela-champagne-600);
+  color: var(--ela-offwhite);
+}
+
+@media (min-width: 1024px) {
+  .ela-site-bar {
+    padding-left: var(--gutter-desktop);
+    padding-right: var(--gutter-desktop);
+  }
+
+  .ela-site-bar__logo-img {
+    height: 36px;
+  }
+}
+
+@media (max-width: 560px) {
+  .ela-site-bar__nav-item {
+    display: none;
+  }
+}

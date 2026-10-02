@@ -40,6 +40,10 @@
   color: var(--ela-champagne);
 }
 
+.ela-app-bar__logo-img {
+  height: 28px;
+}
+
 .ela-app-bar__lead {
   display: flex;
   align-items: center;

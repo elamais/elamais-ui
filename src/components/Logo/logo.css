@@ -1,0 +1,8 @@
+/* The artwork keeps its proportions; screens set the height. */
+.ela-logo {
+  display: inline-block;
+  vertical-align: middle;
+  height: 36px;
+  width: auto;
+  aspect-ratio: 428.64 / 125.76;
+}

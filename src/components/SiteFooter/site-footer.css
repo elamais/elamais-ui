@@ -1,0 +1,99 @@
+/* The institutional site's footer (elamais-site Footer). */
+.ela-site-footer {
+  background: var(--ela-plum-900);
+  color: var(--text-on-brand-soft);
+  padding: 56px 0 32px;
+  font-family: var(--font-sans);
+}
+
+.ela-site-footer__inner,
+.ela-site-footer__legal {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 var(--gutter-mobile);
+  box-sizing: border-box;
+}
+
+.ela-site-footer__inner {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 32px;
+}
+
+.ela-site-footer__logo {
+  display: block;
+  height: 28px;
+}
+
+.ela-site-footer__slogan {
+  margin: 8px 0 0;
+  font-size: var(--fs-small);
+}
+
+.ela-site-footer__social {
+  list-style: none;
+  margin: var(--space-5) 0 0;
+  padding: 0;
+  display: flex;
+  gap: var(--space-2);
+}
+
+.ela-site-footer__social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--touch-min);
+  height: var(--touch-min);
+  border-radius: var(--radius-full);
+  color: var(--text-on-brand-soft);
+  transition:
+    color var(--dur-base) var(--ease-standard),
+    background-color var(--dur-base) var(--ease-standard);
+}
+
+.ela-site-footer__social-link:hover {
+  color: var(--ela-plum-900);
+  background: var(--ela-champagne);
+}
+
+.ela-site-footer__social-link:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+.ela-site-footer__heading {
+  margin: 0 0 12px;
+  font-size: var(--fs-caption);
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--text-on-brand);
+}
+
+.ela-site-footer__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.ela-site-footer__link {
+  color: var(--text-on-brand-soft);
+  text-decoration: none;
+}
+
+.ela-site-footer__link:hover {
+  color: var(--ela-champagne);
+}
+
+.ela-site-footer__legal {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(250, 248, 245, 0.16);
+  font-size: var(--fs-caption);
+}
+
+.ela-site-footer__legal p {
+  margin: 0;
+}

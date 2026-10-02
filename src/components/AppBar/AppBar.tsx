@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { cx } from "../../utils/cx";
+import { Logo } from "../Logo";
 import "./app-bar.css";
 
 export type AppBarVariant = "brand" | "page";
@@ -17,7 +18,7 @@ export interface AppBarProps {
   backLabel?: string;
   /** Right-side actions (icon buttons). */
   actions?: ReactNode;
-  /** Custom wordmark node (variant `brand`); defaults to ELA+. */
+  /** Custom logo node (variant `brand`); defaults to the official artwork. */
   logo?: ReactNode;
   className?: string;
 }
@@ -35,14 +36,7 @@ export function AppBar({
     <header className={cx("ela-app-bar", `ela-app-bar--${variant}`, className)}>
       {variant === "brand" ? (
         <div className="ela-app-bar__logo" aria-label="ELA+">
-          {logo ?? (
-            <>
-              <span aria-hidden="true">ELA</span>
-              <span className="ela-app-bar__logo-plus" aria-hidden="true">
-                +
-              </span>
-            </>
-          )}
+          {logo ?? <Logo tone="negative" title="" className="ela-app-bar__logo-img" />}
         </div>
       ) : (
         <div className="ela-app-bar__lead">

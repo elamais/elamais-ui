@@ -80,7 +80,10 @@ declare system fallbacks.
 | `BottomSheet` | Bottom-anchored dialog with drag handle, radius 24 top. |
 | `EmptyState` | Icon in champagne circle + serif title + description + action slot. |
 | `Skeleton` | Pulsing placeholder (`text` / `rect` / `circle`). Never a full-screen spinner. |
-| `AppBar` | `brand` (plum + ELA+ wordmark) or `page` (off-white, back button + title). |
+| `AppBar` | `brand` (plum + the official logo) or `page` (off-white, back button + title). |
+| `Logo` | The approved ELA+ artwork, inlined (never typed — brand manual). `tone` `positive` (plum, light grounds) / `negative` (off-white, plum grounds); `title=""` when a link already names it. Size with CSS `height`. |
+| `SiteBar` | The institutional site's plum bar: logo to `homeHref`, `nav` links (hidden under 560px) and a champagne `cta`. `renderLink` lets an app use its router. |
+| `SiteFooter` | The institutional site's footer: logo, slogan, `social` networks, link `columns` and the copyright `year`. Same `renderLink`. |
 | `TabBar` | 5-item bottom navigation; active item in plum with a 4px champagne dot. |
 | `RichTextEditor` | Controlled rich text field (`value` HTML + `onChange(html)`, `label`/`hint`/`error`/`disabled`/`id`/`minHeight`) for backoffice contents. contentEditable with a WAI-ARIA toolbar (bold, italic, underline, H2/H3, paragraph, lists, quote, link with http(s)/mailto validation, clear, undo/redo); output sanitized on every change and on paste. No extra runtime dependency. |
 | `RichTextView` | Read-only render of a rich text body (`html`), sanitized, same typography as the editor. |
