@@ -27,7 +27,8 @@
 }
 
 .ela-site-footer__slogan {
-  margin: 8px 0 0;
+  /* 16px: the site's logo was an inline image, which left 8px under it. */
+  margin: 16px 0 0;
   font-size: var(--fs-small);
 }
 
@@ -95,5 +96,6 @@
 }
 
 .ela-site-footer__legal p {
-  margin: 0;
+  /* The site's copyright kept the paragraph's default 1em. */
+  margin: 1em 0;
 }
