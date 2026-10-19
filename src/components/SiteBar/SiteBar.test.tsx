@@ -37,4 +37,11 @@ describe("SiteBar", () => {
     render(<SiteBar homeHref="/" />);
     expect(screen.queryByRole("navigation")).not.toBeInTheDocument();
   });
+
+  it("shows the links without a call to action", () => {
+    const { container } = render(<SiteBar homeHref="/" nav={[{ label: "Sobre", href: "/sobre" }]} />);
+    expect(screen.getByRole("navigation", { name: "Navegação principal" })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Sobre" })).toBeInTheDocument();
+    expect(container.querySelector(".ela-site-bar__cta")).toBeNull();
+  });
 });

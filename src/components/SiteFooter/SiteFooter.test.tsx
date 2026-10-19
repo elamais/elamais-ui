@@ -31,4 +31,24 @@ describe("SiteFooter", () => {
     expect(screen.getByRole("link", { name: "ELA+ no Instagram" })).toHaveAttribute("target", "_blank");
     expect(screen.getByRole("link", { name: "Escrever para a ELA+" })).not.toHaveAttribute("target");
   });
+
+  it("draws a hidden glyph for every known network and none for an unknown one", () => {
+    const networks = ["Instagram", "Facebook", "WhatsApp", "TikTok", "Email"];
+    render(
+      <SiteFooter
+        columns={[]}
+        year={2026}
+        social={[
+          ...networks.map((name) => ({ name, label: `ELA+ — ${name}`, href: `https://example.com/${name}` })),
+          { name: "Orkut", label: "ELA+ — Orkut", href: "https://example.com/orkut" },
+        ]}
+      />,
+    );
+    for (const name of networks) {
+      const glyph = screen.getByRole("link", { name: `ELA+ — ${name}` }).querySelector("svg");
+      expect(glyph).not.toBeNull();
+      expect(glyph).toHaveAttribute("aria-hidden", "true");
+    }
+    expect(screen.getByRole("link", { name: "ELA+ — Orkut" }).querySelector("svg")).toBeNull();
+  });
 });

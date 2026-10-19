@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { render, screen } from "@testing-library/react";
+import { act, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, it, vi } from "vitest";
 import { BottomSheet } from "../../components/BottomSheet";
@@ -117,3 +117,109 @@ describe("useDialog layer stack", () => {
     expect(onDrawerClose).toHaveBeenCalledTimes(1);
   });
 });
+
+describe("useDialog focus handling", () => {
+  it("focuses the dialog on open and gives focus back on close", async () => {
+    const user = userEvent.setup();
+    function Opener() {
+      const [open, setOpen] = useState(false);
+      return (
+        <>
+          <button type="button" onClick={() => setOpen(true)}>
+            Abrir
+          </button>
+          <Modal open={open} onClose={() => setOpen(false)} title="Aviso" />
+        </>
+      );
+    }
+    render(<Opener />);
+
+    await user.click(screen.getByRole("button", { name: "Abrir" }));
+    expect(screen.getByRole("dialog", { name: "Aviso" })).toHaveFocus();
+
+    await user.keyboard("{Escape}");
+    expect(screen.getByRole("button", { name: "Abrir" })).toHaveFocus();
+  });
+
+  it("keeps Tab inside a dialog with nothing focusable", async () => {
+    const user = userEvent.setup();
+    render(
+      <>
+        <button type="button">Fora</button>
+        <Modal open onClose={() => {}} title="Só leitura">
+          texto
+        </Modal>
+      </>,
+    );
+    const modal = screen.getByRole("dialog", { name: "Só leitura" });
+    expect(modal).toHaveFocus();
+
+    await user.tab();
+    expect(modal).toHaveFocus();
+  });
+
+  it("wraps Tab from the last control to the first and Shift+Tab back", async () => {
+    const user = userEvent.setup();
+    render(
+      <>
+        <button type="button">Fora</button>
+        <Modal
+          open
+          onClose={() => {}}
+          title="Confirmar"
+          footer={
+            <>
+              <button type="button">Cancelar</button>
+              <button type="button">Confirmar</button>
+            </>
+          }
+        />
+      </>,
+    );
+    const cancel = screen.getByRole("button", { name: "Cancelar" });
+    const confirm = screen.getByRole("button", { name: "Confirmar" });
+
+    // From the dialog itself, Shift+Tab lands on the last control.
+    await user.tab({ shift: true });
+    expect(confirm).toHaveFocus();
+
+    // Forward from the last control wraps to the first.
+    await user.tab();
+    expect(cancel).toHaveFocus();
+
+    // In the middle, Tab moves on normally.
+    await user.tab();
+    expect(confirm).toHaveFocus();
+
+    // Backward from the first control wraps to the last.
+    cancel.focus();
+    await user.tab({ shift: true });
+    expect(confirm).toHaveFocus();
+
+    // Backward from the last control moves on normally.
+    await user.tab({ shift: true });
+    expect(cancel).toHaveFocus();
+  });
+
+  it("does not try to give focus back to a non-HTML element", async () => {
+    const user = userEvent.setup();
+    function Opener() {
+      const [open, setOpen] = useState(false);
+      return (
+        <>
+          <svg tabIndex={0} aria-label="Ícone" onFocus={() => setOpen(true)} />
+          <Modal open={open} onClose={() => setOpen(false)} title="Aviso" />
+        </>
+      );
+    }
+    render(<Opener />);
+
+    act(() => (screen.getByLabelText("Ícone") as unknown as SVGElement).focus());
+    expect(screen.getByRole("dialog", { name: "Aviso" })).toHaveFocus();
+
+    await user.keyboard("{Escape}");
+    expect(screen.queryByRole("dialog")).toBeNull();
+    expect(document.body).toHaveFocus();
+  });
+});
+

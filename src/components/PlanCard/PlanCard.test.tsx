@@ -45,4 +45,37 @@ describe("PlanCard", () => {
     await user.click(screen.getByRole("button", { name: "Selecionar" }));
     expect(onSelect).toHaveBeenCalledOnce();
   });
+
+  it("lists the features and mutes the ones not included", () => {
+    render(
+      <PlanCard
+        name="Essencial"
+        price="R$ 29,90"
+        tagline="para começar"
+        ctaLabel="Selecionar"
+        features={[
+          { label: "Catálogo de parceiras" },
+          { label: "Presentes", included: true },
+          { label: "X+ em experiências", included: false },
+        ]}
+      />,
+    );
+    const items = screen.getAllByRole("listitem");
+    expect(items.map((item) => item.textContent)).toEqual([
+      "Catálogo de parceiras",
+      "Presentes",
+      "X+ em experiências",
+    ]);
+    expect(items[0]).not.toHaveClass("ela-plan-card__feature--muted");
+    expect(items[1]).not.toHaveClass("ela-plan-card__feature--muted");
+    expect(items[2]).toHaveClass("ela-plan-card__feature--muted");
+    expect(screen.getByText("para começar")).toBeInTheDocument();
+  });
+
+  it("renders no list without features and can disable its action", () => {
+    render(<PlanCard name="Essencial" price="R$ 29,90" ctaLabel="Plano atual" ctaDisabled className="extra" />);
+    expect(screen.queryByRole("list")).not.toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Plano atual" })).toBeDisabled();
+    expect(screen.getByRole("article")).toHaveClass("extra");
+  });
 });

@@ -59,4 +59,23 @@ describe("CycleToggle", () => {
     );
     expect(screen.getByRole("radio", { name: "Por ano" })).toBeInTheDocument();
   });
+
+  it("moves back to monthly with the arrows from annual", async () => {
+    const user = userEvent.setup();
+    const onChange = vi.fn();
+    render(<CycleToggle value="annual" onChange={onChange} />);
+    screen.getByRole("radio", { name: "Anual" }).focus();
+    await user.keyboard("{ArrowLeft}");
+    expect(onChange).toHaveBeenCalledWith("monthly");
+    expect(screen.getByRole("radio", { name: "Mensal" })).toHaveFocus();
+  });
+
+  it("ignores keys other than the arrows", async () => {
+    const user = userEvent.setup();
+    const onChange = vi.fn();
+    render(<CycleToggle value="monthly" onChange={onChange} />);
+    screen.getByRole("radio", { name: "Mensal" }).focus();
+    await user.keyboard("a");
+    expect(onChange).not.toHaveBeenCalled();
+  });
 });

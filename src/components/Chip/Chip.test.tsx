@@ -54,4 +54,40 @@ describe("Chip", () => {
     await user.click(screen.getByRole("button"));
     expect(onSelectedChange).not.toHaveBeenCalled();
   });
+
+  it("calls the caller's onClick before toggling", async () => {
+    const user = userEvent.setup();
+    const onClick = vi.fn();
+    const onSelectedChange = vi.fn();
+    render(
+      <Chip onClick={onClick} onSelectedChange={onSelectedChange}>
+        Beleza
+      </Chip>,
+    );
+    await user.click(screen.getByRole("button"));
+    expect(onClick).toHaveBeenCalledTimes(1);
+    expect(onSelectedChange).toHaveBeenCalledWith(true);
+  });
+
+  it("lets the caller veto the toggle with preventDefault", async () => {
+    const user = userEvent.setup();
+    const onSelectedChange = vi.fn();
+    render(
+      <Chip
+        onClick={(event) => event.preventDefault()}
+        onSelectedChange={onSelectedChange}
+      >
+        Beleza
+      </Chip>,
+    );
+    await user.click(screen.getByRole("button"));
+    expect(onSelectedChange).not.toHaveBeenCalled();
+  });
+
+  it("works as a plain button without a toggle handler", async () => {
+    const user = userEvent.setup();
+    render(<Chip>Beleza</Chip>);
+    await user.click(screen.getByRole("button", { name: "Beleza" }));
+    expect(screen.getByRole("button")).toHaveAttribute("aria-pressed", "false");
+  });
 });

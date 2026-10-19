@@ -91,4 +91,45 @@ describe("useCountdown", () => {
     expect(result.current.isExpired).toBe(true);
     expect(result.current.remainingMs).toBe(0);
   });
+
+  it("reports expiry right away for a target already in the past", () => {
+    const onExpire = vi.fn();
+    renderHook(() => useCountdown(new Date(Date.now() - 1000), { onExpire }));
+    expect(onExpire).toHaveBeenCalledTimes(1);
+  });
+
+  it("re-arms when the target changes", () => {
+    const { result, rerender } = renderHook(
+      ({ target }: { target: Date | number }) => useCountdown(target),
+      { initialProps: { target: new Date(Date.now() + 60_000) as Date | number } },
+    );
+    expect(result.current.formatted).toBe("01:00");
+
+    act(() => {
+      vi.advanceTimersByTime(10_000);
+    });
+    expect(result.current.formatted).toBe("00:50");
+
+    rerender({ target: new Date(Date.now() + 5 * 60_000) });
+    expect(result.current.formatted).toBe("05:00");
+
+    act(() => {
+      vi.advanceTimersByTime(1000);
+    });
+    expect(result.current.formatted).toBe("04:59");
+  });
+
+  it("does not re-arm when re-rendered with the same instant", () => {
+    const end = Date.now() + 60_000;
+    const { result, rerender } = renderHook(
+      ({ target }: { target: Date }) => useCountdown(target),
+      { initialProps: { target: new Date(end) } },
+    );
+    act(() => {
+      vi.advanceTimersByTime(10_000);
+    });
+    rerender({ target: new Date(end) });
+    expect(result.current.formatted).toBe("00:50");
+  });
 });
+

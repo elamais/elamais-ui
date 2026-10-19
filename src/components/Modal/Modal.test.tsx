@@ -80,4 +80,24 @@ describe("Modal", () => {
     expect(trigger).toHaveFocus();
     trigger.remove();
   });
+
+  it("can be named by an external element instead of a title", () => {
+    render(
+      <>
+        <h2 id="titulo-externo">Excluir parceira</h2>
+        <Modal open onClose={() => {}} ariaLabelledBy="titulo-externo" />
+      </>,
+    );
+    expect(screen.getByRole("dialog", { name: "Excluir parceira" })).toBeInTheDocument();
+  });
+
+  it("renders the footer actions", () => {
+    render(
+      <Modal open onClose={() => {}} title="Excluir" footer={<button type="button">Excluir</button>}>
+        Esta ação não pode ser desfeita.
+      </Modal>,
+    );
+    expect(screen.getByRole("button", { name: "Excluir" })).toBeInTheDocument();
+    expect(screen.getByText("Esta ação não pode ser desfeita.")).toBeInTheDocument();
+  });
 });

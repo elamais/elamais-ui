@@ -25,4 +25,40 @@ describe("FileField", () => {
     expect(screen.getByText("Enviando…")).toBeInTheDocument();
     expect(screen.getByLabelText("Enviar banner")).toBeDisabled();
   });
+
+  it("ignores a dialog closed without a file", () => {
+    const onFile = vi.fn();
+    render(<FileField label="Ícone" onFile={onFile} />);
+    fireEvent.change(screen.getByLabelText("Enviar ícone"), { target: { files: [] } });
+    expect(onFile).not.toHaveBeenCalled();
+  });
+
+  it("shows the error and links it to the input", () => {
+    const { container } = render(
+      <FileField label="Ícone" onFile={() => {}} error="Formato não suportado" className="extra" />,
+    );
+    const input = screen.getByLabelText("Enviar ícone");
+    expect(input).toHaveAttribute("aria-invalid", "true");
+    expect(input).toHaveAccessibleDescription("Formato não suportado");
+    expect(container.firstChild).toHaveClass("ela-textfield--error", "extra");
+  });
+
+  it("is disabled with custom texts and labels", () => {
+    const { container } = render(
+      <FileField
+        label="Banner"
+        onFile={() => {}}
+        disabled
+        previewUrl="https://cdn.test/b.png"
+        previewAlt="Banner atual"
+        replaceText="Substituir"
+        inputAriaLabel="Arquivo do banner"
+      />,
+    );
+    expect(container.firstChild).toHaveClass("ela-textfield--disabled");
+    expect(screen.getByLabelText("Arquivo do banner")).toBeDisabled();
+    expect(screen.getByAltText("Banner atual")).toBeInTheDocument();
+    expect(screen.getByText("Substituir")).toBeInTheDocument();
+    expect(screen.getByLabelText("Arquivo do banner")).not.toHaveAttribute("aria-invalid");
+  });
 });

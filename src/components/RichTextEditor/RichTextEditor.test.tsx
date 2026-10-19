@@ -306,3 +306,63 @@ describe("RichTextEditor — links", () => {
     expect(commands()).toEqual([]);
   });
 });
+
+describe("RichTextEditor — edge cases", () => {
+  it("focuses the writing area when the label is clicked", () => {
+    const { editor } = setup();
+    fireEvent.click(screen.getByText("Corpo do texto"));
+    expect(editor).toHaveFocus();
+  });
+
+  it("is described by the hint alone and is not invalid without an error", () => {
+    const { editor } = setup({ hint: "Aparece no app", className: "extra", placeholder: "Escreva aqui" });
+    expect(editor).toHaveAccessibleDescription("Aparece no app");
+    expect(editor).not.toHaveAttribute("aria-invalid");
+    expect(editor).toHaveAttribute("data-placeholder", "Escreva aqui");
+    expect(editor).toHaveClass("ela-rte__content--empty");
+    expect(editor.closest(".ela-rte")).toHaveClass("extra");
+  });
+
+  it("moves focus to the first tool with Home and wraps backwards with ArrowLeft", () => {
+    setup();
+    const bold = screen.getByRole("button", { name: "Negrito" });
+    const italic = screen.getByRole("button", { name: "Itálico" });
+    const redo = screen.getByRole("button", { name: "Refazer" });
+    act(() => italic.focus());
+    fireEvent.keyDown(italic, { key: "Home" });
+    expect(bold).toHaveFocus();
+    fireEvent.keyDown(bold, { key: "ArrowLeft" });
+    expect(redo).toHaveFocus();
+    fireEvent.keyDown(redo, { key: "a" });
+    expect(redo).toHaveFocus();
+  });
+
+  it("does nothing, without failing, in a browser with no editing commands", () => {
+    Reflect.deleteProperty(document, "execCommand");
+    const { onChange } = setup({ value: "<p>texto</p>" });
+    fireEvent.click(screen.getByRole("button", { name: "Negrito" }));
+    expect(onChange).not.toHaveBeenCalled();
+  });
+
+  it("inserts nothing for an empty paste", () => {
+    const { editor } = setup();
+    paste(editor, {});
+    expect(commands()).toEqual([]);
+  });
+
+  it("keeps the toolbar state when the selection moves outside the editor", () => {
+    render(
+      <>
+        <p>fora do editor</p>
+        <RichTextEditor label="Corpo do texto" value="<p><strong>forte</strong></p>" onChange={() => {}} />
+      </>,
+    );
+    const editor = screen.getByRole("textbox", { name: "Corpo do texto" });
+    select(editor.querySelector("strong")!.firstChild!, 1);
+    expect(screen.getByRole("button", { name: "Negrito" })).toHaveAttribute("aria-pressed", "true");
+
+    select(screen.getByText("fora do editor").firstChild!, 2);
+    expect(screen.getByRole("button", { name: "Negrito" })).toHaveAttribute("aria-pressed", "true");
+  });
+});
+

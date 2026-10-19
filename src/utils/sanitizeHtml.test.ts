@@ -1,4 +1,4 @@
-import { describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import { isSafeLinkUrl, plainTextToHtml, sanitizeHtml } from "./sanitizeHtml";
 
 const LINK = 'target="_blank" rel="noopener noreferrer"';
@@ -56,6 +56,13 @@ describe("sanitizeHtml — allowlist", () => {
   it("turns list items outside a list into paragraphs", () => {
     expect(sanitizeHtml("<li>solto</li>")).toBe("<p>solto</p>");
   });
+
+  it("keeps a line break between blocks flattened into inline content", () => {
+    // The parser lets <p> live inside <a>; unwrapped, their words must not merge.
+    expect(sanitizeHtml('<a href="https://x.com"><p>um</p><p>dois</p></a>')).toBe(
+      `<p><a href="https://x.com" ${LINK}>um<br>dois</a></p>`,
+    );
+  });
 });
 
 describe("sanitizeHtml — XSS vectors", () => {
@@ -108,6 +115,17 @@ describe("sanitizeHtml — XSS vectors", () => {
   it("escapes attribute-breaking quotes in hrefs", () => {
     const out = sanitizeHtml('<p><a href="https://x.com/&quot;onmouseover=&quot;alert(1)">x</a></p>');
     expect(out).not.toMatch(/\sonmouseover=/);
+  });
+
+  it("does not nest a link the parser places inside another through a table cell", () => {
+    // A table cell is a formatting marker, so the HTML parser keeps this inner
+    // <a> inside the outer one; the sanitizer must unwrap it.
+    const out = sanitizeHtml(
+      '<a href="https://a.com"><table><tr><td><a href="https://b.com">x</a></td></tr></table></a>',
+    );
+    expect(out).not.toMatch(/<a[^>]*>(?:(?!<\/a>).)*<a/);
+    expect(out).not.toContain("https://b.com");
+    expect(out).toContain("x");
   });
 
   it("does not nest links", () => {
@@ -164,3 +182,17 @@ describe("plainTextToHtml", () => {
     expect(plainTextToHtml("<script>alert(1)</script>")).toBe("<p>&lt;script&gt;alert(1)&lt;/script&gt;</p>");
   });
 });
+
+describe("sanitizeHtml — without a DOM", () => {
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
+  it("falls back to escaped plain text when DOMParser is unavailable", () => {
+    vi.stubGlobal("DOMParser", undefined);
+    expect(sanitizeHtml('<p onclick="x()">a & <b>b</b></p>')).toBe(
+      "&lt;p onclick=\"x()\"&gt;a &amp; &lt;b&gt;b&lt;/b&gt;&lt;/p&gt;",
+    );
+  });
+});
+

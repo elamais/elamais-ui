@@ -65,4 +65,26 @@ describe("Button", () => {
     ).not.toBeInTheDocument();
     expect(screen.getByRole("button")).not.toHaveAttribute("aria-busy");
   });
+
+  it("applies the compact size, pill shape and full width", () => {
+    render(
+      <Button size="sm" pill fullWidth className="extra">
+        Filtrar
+      </Button>,
+    );
+    expect(screen.getByRole("button", { name: "Filtrar" })).toHaveClass(
+      "ela-button--sm",
+      "ela-button--pill",
+      "ela-button--full",
+      "extra",
+    );
+  });
+
+  it("keeps the regular size and square corners by default", () => {
+    render(<Button>Ok</Button>);
+    const button = screen.getByRole("button");
+    expect(button).not.toHaveClass("ela-button--sm");
+    expect(button).not.toHaveClass("ela-button--pill");
+    expect(button).not.toHaveClass("ela-button--full");
+  });
 });

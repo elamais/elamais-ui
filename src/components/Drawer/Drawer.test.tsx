@@ -46,4 +46,14 @@ describe("Drawer", () => {
     fireEvent.mouseDown(screen.getByText("miolo"));
     expect(onClose).not.toHaveBeenCalled();
   });
+
+  it("can be named by an external element instead of a title", () => {
+    render(
+      <>
+        <h2 id="painel-externo">Detalhes</h2>
+        <Drawer open onClose={() => {}} ariaLabelledBy="painel-externo" />
+      </>,
+    );
+    expect(screen.getByRole("dialog", { name: "Detalhes" })).toBeInTheDocument();
+  });
 });

@@ -19,4 +19,22 @@ describe("InlineSelect", () => {
     fireEvent.change(screen.getByLabelText("Ordenar por"), { target: { value: "b" } });
     expect(onChange).toHaveBeenCalled();
   });
+
+  it("shows nothing as current when the value matches no option, and can drop the icon", () => {
+    const { container } = render(
+      <InlineSelect
+        label="Ordenar por"
+        options={OPTIONS}
+        value="z"
+        onChange={() => {}}
+        icon={null}
+        id="ordem"
+        className="extra"
+      />,
+    );
+    expect(container.querySelector(".ela-inlineselect__value")).toHaveTextContent("");
+    expect(container.querySelector(".ela-inlineselect__icon")).toBeNull();
+    expect(container.firstChild).toHaveClass("extra");
+    expect(screen.getByLabelText("Ordenar por")).toHaveAttribute("id", "ordem");
+  });
 });
