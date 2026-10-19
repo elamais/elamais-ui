@@ -118,7 +118,7 @@ All styling is driven by the CSS custom properties in `src/styles/tokens.css`
 ```ts
 import { tokens } from "@elamais/ui";
 
-tokens.color.brand.plum.base; // "#3D1B35"
+tokens.color.brand.plum.base; // "#42102B"
 tokens.radius.lg;             // 16
 ```
 
@@ -127,9 +127,9 @@ Never hard-code colors in app code — use the CSS variables
 
 ## Accessibility rules
 
-- **Champagne (`#D8B99A`) is decorative only.** Text on light surfaces uses
-  `var(--text-gold)` (`#7A5A2E`); icons on light surfaces use
-  `--ela-champagne-600` (`#B08A4F`). Both meet AA contrast.
+- **Champagne (`#DAA67A`) is decorative only.** Text on light surfaces uses
+  `var(--text-gold)` (`#9B5E2A`); icons on light surfaces use
+  `--ela-champagne-600` (`#C48855`). Both meet AA contrast.
 - Focus is always visible: every interactive element uses
   `:focus-visible { box-shadow: var(--focus-ring) }`.
 - Touch targets are at least 44px (`--touch-min`), including chips (visual

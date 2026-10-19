@@ -6,7 +6,7 @@ Vite em modo biblioteca, ESM + d.ts) consumidos pelos 4 apps via dependência
 `design-reference/tokens.json` e `design-reference/componentes.html` (nunca
 inventar cores fora dos tokens).
 
-- Champagne (#D8B99A) é DECORATIVO; texto usa #7A5A2E/#B08A4F (contraste AA).
+- Champagne (#DAA67A) é DECORATIVO; texto usa #9B5E2A e ícones #C48855 (contraste AA). Fonte única das cores: design-reference/tokens.json (manual oficial).
 - Tom de voz nos microtextos: feminino, elegante, "valor, não preço" — textos
   fazem parte dos componentes (empty states, erros).
 - Componentes-chave do produto: tela de código/QR com countdown, carteirinha de
