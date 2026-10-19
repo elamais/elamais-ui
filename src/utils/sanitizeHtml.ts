@@ -125,7 +125,7 @@ function cleanChildren(source: Node, target: Node, doc: Document, ctx: Context) 
 
 function cleanNode(node: Node, target: Node, doc: Document, ctx: Context) {
   if (node.nodeType === Node.TEXT_NODE) {
-    target.appendChild(doc.createTextNode(node.textContent ?? ""));
+    target.appendChild(doc.createTextNode((node as Text).data));
     return;
   }
   if (node.nodeType !== Node.ELEMENT_NODE) return; // comments, PIs, CDATA
@@ -183,7 +183,7 @@ function wrapLooseInline(root: Element, doc: Document) {
   const flush = (before: Node | null) => {
     const meaningful = run.some(
       (n) =>
-        (n.nodeType === Node.TEXT_NODE && (n.textContent ?? "").trim() !== "") ||
+        (n.nodeType === Node.TEXT_NODE && (n as Text).data.trim() !== "") ||
         (n.nodeType === Node.ELEMENT_NODE && (n as Element).tagName.toLowerCase() !== "br"),
     );
     if (meaningful) {

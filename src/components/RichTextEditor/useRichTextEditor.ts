@@ -20,7 +20,7 @@ export interface UseRichTextEditorOptions {
 
 /** Sanitized HTML of the editable area; "" when it holds no text. */
 function readValue(el: HTMLElement): string {
-  if ((el.textContent ?? "").trim() === "" && !el.querySelector("li")) return "";
+  if (el.textContent.trim() === "" && !el.querySelector("li")) return "";
   return sanitizeHtml(el.innerHTML);
 }
 
@@ -104,7 +104,7 @@ export function useRichTextEditor({ value, onChange, disabled = false }: UseRich
   const unwrapBlockquote = useCallback(() => {
     const el = editorRef.current;
     const quote = el && closestInside(el, document.getSelection()?.anchorNode ?? null, "blockquote");
-    if (!quote || !quote.parentNode) return;
+    if (!quote) return;
     const holder = document.createElement("div");
     holder.innerHTML = sanitizeHtml(quote.innerHTML);
     quote.replaceWith(...Array.from(holder.childNodes));
