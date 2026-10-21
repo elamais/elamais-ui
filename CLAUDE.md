@@ -41,7 +41,7 @@ inventar cores fora dos tokens).
 
 - Fonte da verdade: repo `elamais/elamais-plano` (regras de negócio, schema de
   referência `db/schema.sql`, segurança/LGPD) e o artefato:
-  https://claude.ai/code/artifact/b2ad9a1b-df9d-4fb4-b155-9afafa2c2a76
+  https://claude.ai/artifact/MvcfSqPYwTHGQJctvFPBq7
 - **Idioma**: código, APIs, commits e README em inglês; discussões/docs de negócio em PT.
 - **Branches**: trabalho na `develop`; `main` recebe merge via PR.
 - **NUNCA mencionar multi-tenant/white label.** O programa de pontos é **XP**
