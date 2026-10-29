@@ -1,0 +1,98 @@
+.ela-dropdown__control {
+  position: relative;
+  display: block;
+}
+
+/* The trigger wears the canonical input chrome (.ela-textfield__input) and
+   adds only what a button needs on top of it. */
+.ela-dropdown__trigger {
+  display: flex;
+  align-items: center;
+  padding-right: var(--space-8);
+  text-align: left;
+  cursor: pointer;
+}
+
+.ela-dropdown__trigger--empty .ela-dropdown__value {
+  color: var(--text-placeholder);
+}
+
+/* A long subject shortens instead of widening the field. */
+.ela-dropdown__value {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ela-dropdown__chevron {
+  position: absolute;
+  right: var(--space-4);
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--text-secondary);
+  font-size: 12px;
+  transition: transform var(--dur-fast) var(--ease-standard);
+}
+
+.ela-dropdown__control--open .ela-dropdown__chevron {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+/* The champagne hairline and e2 elevation are what the brand book gives
+   anything that floats above the page. */
+.ela-dropdown__list {
+  position: absolute;
+  top: calc(100% + var(--space-2));
+  left: 0;
+  right: 0;
+  z-index: 20;
+  margin: 0;
+  padding: var(--space-2);
+  list-style: none;
+  max-height: 288px;
+  overflow-y: auto;
+  background: var(--surface-card);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-e2);
+}
+
+.ela-dropdown__option {
+  display: flex;
+  align-items: center;
+  min-height: var(--touch-min);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+/* One "current" treatment for both the mouse and the keyboard: the active
+   option is the one aria-activedescendant points at. */
+.ela-dropdown__option--active {
+  background: var(--surface-soft);
+}
+
+.ela-dropdown__option--selected {
+  color: var(--ela-plum);
+  font-weight: var(--fw-semibold);
+}
+
+.ela-dropdown__option--selected.ela-dropdown__option--active {
+  background: var(--ela-plum-050);
+}
+
+.ela-dropdown__option--disabled {
+  color: var(--text-disabled);
+  cursor: not-allowed;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ela-dropdown__chevron {
+    transition: none;
+  }
+}

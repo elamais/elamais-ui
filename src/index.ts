@@ -18,6 +18,7 @@ export * from "./components/CheckboxGroup";
 export * from "./components/Chip";
 export * from "./components/ColorField";
 export * from "./components/Drawer";
+export * from "./components/Dropdown";
 export * from "./components/FileField";
 export * from "./components/FormRow";
 export * from "./components/IconButton";
